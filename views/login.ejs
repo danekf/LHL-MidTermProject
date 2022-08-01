@@ -16,20 +16,14 @@
 <body>
   <%- include('partials/_header.ejs') %>
 
-  <h1>Favourited Logins</h1>
+  <h1>Log In</h1>
 
-    <!-- AJAX REQUEST to fetch the desired log in info-->
-    <ul>
-    <!--Default to Favourited logins for user -->
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-  </ul>
+    <form>
+      <input type = "text">email/username </input>
+      <input type = "text">password </input>
+      <button> SIGN IN </button>
+    </form>
 
-  <form action = "/register", method = "GET">
-    <button>SIGN UP NOW!</button>
-  </form>
 
 
 </body>
