@@ -3,29 +3,59 @@
   <!-- FONT AWESOME REF-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<!-- Favourites Icon-->
-  <a href = "/" >
-    <i class="fa-solid fa-star"></i>
-  </a>
+  <!-- Google Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Thasadith&display=swap" rel="stylesheet">
 
+  <span>
+    <div class="top-bar">
+      <!-- Favourites Icon-->
+      <a href = "/" >
+        <i class="fa-solid fa-star"></i>
+      </a>
 
-  <h1>SIGNUM</h1>
+      <!-- App CSS -->
+      <link rel="stylesheet" href="/styles/header.css" type="text/css" />
 
-  <!--Show login/username depending on if user is logged in or not *MUST BE IMPLEMENTED*-->
+      <h1 class="title">SIGNUM</h1>
+    </div>
+
+    <!--Show login/username depending on if user is logged in or not *MUST BE IMPLEMENTED*-->
     <form class = 'login' action = '/login' method = 'GET'>
       <button>Log In(assuming logged out atm)</button>
     </form>
+  </span>
 
-  Menu Bar To Open
-    <form></form>
+    <nav class="menu">
 
-  Menu Bar To Close
-    <form>
-      <ul>
-      </ul>
-    </form>
+            <!-- Menu Bar To Open -->
+      <!-- <form> -->
+        <i class="fa-solid fa-angles-right"></i>
+      <!-- </form> -->
 
-    ADD button
+    <!-- Menu Bar To Close -->
+      <!-- <form>
+        <ul>
+        </ul>
+      </form> -->
+
+
+      <!-- Stretch: Search Bar -->
+      <div class="search-bar flex">
+        <div class="form-outline">
+          <input type="search" id="form1" class="form-control" placeholder="Search" aria-label="Search" />
+        </div>
+      </div>
+
+
+
+
+      <!-- ADD button -->
+
+
+    </nav>
+
 
 </header>
 
