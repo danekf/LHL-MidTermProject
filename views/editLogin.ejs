@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <%- include('partials/_header.ejs') %>
+
+  <h1>Edit Saved Login</h1>
+
+  <form>
+    <input type = "text">username/email </input>
+  </form>
+
+  <form><input type = "text">Log in URL (optional) </input>
+  </form>
+
+  <form><input type = "text">password </input>
+  </form>
+
+  <button>Or user our SECURE PASSWORD CREATOR</button> <!-- AJAX POPUP OF _generatePassword Partial-->
+
+  <form><input type = "text">Name this login </input>
+  </form>
+
+<button> Save Login Info </button>
+
+
+
+
+<%- include('partials/_footer.ejs') %>
+</body>
+</html>
