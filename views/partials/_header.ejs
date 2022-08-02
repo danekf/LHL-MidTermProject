@@ -21,10 +21,20 @@
       <h1 class="title">SIGNUM</h1>
     </div>
 
-    <!--Show login/username depending on if user is logged in or not *MUST BE IMPLEMENTED*-->
-    <form class = 'login' action = '/login' method = 'GET'>
-      <button>Log In(assuming logged out atm)</button>
-    </form>
+    <!--Show login/username depending on if user is logged  or not *MUST BE IMPLEMENTED*-->
+    <% if(user){ %>
+      <form action="/logout" method="POST">
+        Logged in as <%= user %>
+        <button>Logout</button>
+      </form>
+
+    <% } else{ %>
+      <form action="/login" method="GET">
+        <button >Login</button>
+      </form>
+   <% } %>
+
+
   </span>
 
     <nav class="menu">

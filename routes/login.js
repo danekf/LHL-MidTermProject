@@ -9,22 +9,36 @@ const express = require('express');
 const router  = express.Router();
 
 
+
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    res.render("login")
+  router.get("/", (req, res) => {     //if logged in, redirect
+
+      res.render("login");
+
   });
 
   router.post("/", (req, res) => {
     //get user provided login and password
     const {login, password} = req.body;
+    console.log(`Login: ${login} password: ${password}`)
 
-    //query db for login info
-    db.query(`SELECT *
+    const queryString = `
+    SELECT *
     FROM users
     WHERE (email = $1 AND password = $2)
-    OR (username = $1 AND password = $2);`, [`%${login}%`, `%${password}%`])
+    OR (username = $1 AND password = $2)
+    ;`;
+
+    const queryValues = [`${login}`, `${password}`];
+
+    //query db for login info
+    db.query(queryString, queryValues)
     .then(data => {
-      console.log(data);
+
+      req.session.userId = data.rows[0].username; //set session cookie, with the logged in users username
+      const templatevars = {user: req.session.userId}
+      res.render("index", templatevars);
+
     })
     .catch(err => {
       res
