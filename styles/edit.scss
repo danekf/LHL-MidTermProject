@@ -16,4 +16,18 @@ div {
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
+  .password-input {
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px; //to keep alligned with centered boxes
+  }
+
+  .fa-copy {
+    padding: 1em;
+  }
+
+  .fa-copy:hover {
+    color: #fca311;
+  }
 }
