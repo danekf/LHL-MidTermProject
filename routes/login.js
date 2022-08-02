@@ -16,6 +16,7 @@ module.exports = (db) => {
     res.render("login", templatevars);
   });
 
+  //login
   router.post("/", (req, res) => {
     //get user provided login and password
     const {login, password} = req.body;
@@ -47,6 +48,13 @@ module.exports = (db) => {
 
   });
 
+  //logout
+  router.post("/logout", (req, res) => {     //if logged in, redirect
+    req.session = null;
+
+    const templatevars = {user: req.session.userId};
+    res.render("index", templatevars);
+  });
 
   return router;
 };
