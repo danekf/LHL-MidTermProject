@@ -48,7 +48,7 @@ app.use("/api/users", usersRoutes(db));
 
 app.use("/register", registerRoutes());
 app.use("/addNewLogin", addNewRoutes());
-app.use("/edit", editRoutes());
+app.use("/editLogin", editRoutes());
 app.use("/login", loginRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
