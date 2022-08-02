@@ -12,9 +12,8 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {     //if logged in, redirect
-
-      res.render("login");
-
+    const templatevars = {user: req.session.userId}
+    res.render("login", templatevars);
   });
 
   router.post("/", (req, res) => {
