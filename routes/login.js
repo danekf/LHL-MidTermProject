@@ -43,7 +43,7 @@ module.exports = (db) => {
     db.query(queryString, queryValues)
     .then(data => {
 
-      req.session.userId = data.rows[0].username; //set session cookie, with the logged in users username
+      req.session.userId = data.rows[0]; //set session cookie, with the logged in users username
       const templateVars = {user: req.session.userId, error: ""};
       res.render("index", templateVars);
 
