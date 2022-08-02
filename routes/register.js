@@ -7,6 +7,9 @@
 
 const express = require('express');
 const router  = express.Router();
+const addUser = require('../public/scripts/database')
+const getUserByUsername = require('../public/scripts/database')
+const getUserWithEmail = require('../public/scripts/database')
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -14,22 +17,30 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
-    // Create a new user with the login information below:
-    const user = req.body;
+    router.post('/', (req, res) => {
+      const user = req.body;
+      db.addUser(user)
+      .then(user => {
+        if (!user) {
+          res.send({error: "error"});
+          return;
+        }
+        req.session.userId = user.id;
+        return res.redirect('/');
 
-    db.addUser(user)
-    .then(user => {
-      if (!user) {
-        res.send({error: "error"});
-        return;
-      }
-      req.session.userId = user.id;
-      res.send("🤗");
-    })
-    .catch(e => res.send(e));
+      })
+      .catch(e => res.send(e));
+    });
 
-    return res.redirect('/');
+    // if (email === '' || username === '' || password === '') {
+    //   return res.status(400).send('Status Code 400: Error, please enter an email, username and/or password to proceed.');
+    // }
+    // if (username) {
+    //   return res.status(400).send('Status Code 400: Error, username is already in use.');
+    // }
+    // if (email) {
+    //   return res.status(400).send('Status Code 400: Error, email address is already registered.');
+    // }
   })
-
   return router;
 };
