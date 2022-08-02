@@ -11,13 +11,21 @@ const router  = express.Router();
 
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {     //if logged in, redirect
-    const templatevars = {user: req.session.userId}
+  router.get("/", (req, res) => {
+    //if logged in, redirect
+    if (req.session.userId){
+      const templateVars = {user: req.session.userId};
+      res.redirect("index", templateVars);
+    }
+
+    const templatevars = {user: req.session.userId, error: ""};
     res.render("login", templatevars);
   });
 
   //login
   router.post("/", (req, res) => {
+    console.log(`request: ${req.body}`);
+
     //get user provided login and password
     const {login, password} = req.body;
     console.log(`Login: ${login} password: ${password}`)
@@ -36,25 +44,17 @@ module.exports = (db) => {
     .then(data => {
 
       req.session.userId = data.rows[0].username; //set session cookie, with the logged in users username
-      const templatevars = {user: req.session.userId}
-      res.render("index", templatevars);
+      const templateVars = {user: req.session.userId, error: ""};
+      res.render("index", templateVars);
 
     })
     .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
+      console.log(err);
+      const templateVars = {user: "", error: "Login not found, please verify and try again."}
+      res.render("login", templateVars);
     });
-
   });
 
-  //logout
-  router.post("/logout", (req, res) => {     //if logged in, redirect
-    req.session = null;
-
-    const templatevars = {user: req.session.userId};
-    res.render("index", templatevars);
-  });
 
   return router;
 };

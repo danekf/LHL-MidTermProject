@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Thasadith&display=swap" rel="stylesheet">
 
+      <!-- jQuery-->
+      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
   <span>
     <div class="top-bar">
       <!-- Favourites Icon-->
@@ -21,13 +24,12 @@
       <h1 class="title">SIGNUM</h1>
     </div>
 
-    <!--Show login/username depending on if user is logged  or not *MUST BE IMPLEMENTED*-->
+    <!--Show login/username depending on if user is logged  or not-->
     <% if(user){ %>
       <form action="/logout" method="POST">
         Logged in as <%= user %>
         <button>Logout</button>
       </form>
-
 
     <% } else{ %>
       <form action="/login" method="GET">
