@@ -15,8 +15,24 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
+    //get user provided login and password
     const {login, password} = req.body;
-    console.log(login, password)
+
+    //query db for login info
+    db.query(`SELECT *
+    FROM users
+    WHERE (email = $1 AND password = $2)
+    OR (username = $1 AND password = $2);`, [`%${login}%`, `%${password}%`])
+    .then(data => {
+      const users = data.rows;
+      res.json({ users });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+
   });
 
 
