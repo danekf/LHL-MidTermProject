@@ -24,8 +24,7 @@ module.exports = (db) => {
     WHERE (email = $1 AND password = $2)
     OR (username = $1 AND password = $2);`, [`%${login}%`, `%${password}%`])
     .then(data => {
-      const users = data.rows;
-      res.json({ users });
+      console.log(data);
     })
     .catch(err => {
       res
