@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+      <!-- App CSS -->
+      <link rel="stylesheet" href="/styles/login.css" type="text/css" />
+
 <head>
   <title>Home Page</title>
 
@@ -14,18 +17,17 @@
 </head>
 
 <body>
-  <%- include('partials/_header.ejs') %>
-
+    <%- include('partials/_header.ejs') %>
+<div class="login-page flex">
   <h1>Log In</h1>
 
-    <form>
-      <input type = "text">email/username </input>
-      <input type = "text">password </input>
-      <button> Log In </button>
-    </form>
+  <form>
+    <input type = "text" placeholder="email/username"> </input>
+    <input type = "text" placeholder="password"> </input>
+    <button> Log In </button>
+  </form>
+</div>
 
-
-    <%- include('partials/_footer.ejs') %>
+      <%- include('partials/_footer.ejs') %>
 </body>
-
 </html>
