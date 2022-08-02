@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- App CSS -->
+<link rel="stylesheet" href="/styles/main.css" type="text/css" />
+
 <head>
   <title>Home Page</title>
 
@@ -13,22 +16,23 @@
   <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
-<body>
+<body class="favourited-logins">
   <%- include('partials/_header.ejs') %>
 
   <h1>Favourited Logins</h1>
 
     <!-- AJAX REQUEST to fetch the desired log in info-->
-    <ul>
+    <ul class = cards style="list-style: none">
     <!--Default to Favourited logins for user -->
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
+    <!-- Can add more icons as needed for larger views-->
+    <li class="card">1</li>
+    <li class="card">2</li>
+    <li class="card">3</li>
+    <li class="card">4</li>
   </ul>
 
   <form action = "/register", method = "GET">
-    <button>SIGN UP NOW!</button>
+    <button class="signup">SIGN UP NOW!</button>
   </form>
 
   <%- include('partials/_footer.ejs') %>

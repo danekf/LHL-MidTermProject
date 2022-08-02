@@ -1,3 +1,54 @@
-.loginpage {
-  background-color: aqua;
+.favourited-logins {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    align-self: center;
+  }
+
+  ul {
+    display: flex;
+    padding-left: 0px;
+    flex-wrap: wrap;
+    align-self: center;
+    justify-content: space-around;
+  }
+
+  form {
+    display: flex;
+    align-self: center;
+  }
+
+  .card {
+    border-width: 3px;
+    border-color: red;
+    background-color: #4f5d75;
+    color: white;
+    padding: 1em;
+    height: 8em;
+    width: 8em;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2em;
+    padding: 1em;
+  }
+
+  @media (max-width: 1023px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+  }
+
+// For desktop view - implement later
+  // @media (min-width: 1024px) {
+  //   .cards { grid-template-columns: repeat(3, 1fr); }
+  // }
+
+  .signup {
+    margin: 5em;
+  }
 }
