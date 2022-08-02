@@ -70,12 +70,8 @@ app.use("/login", loginRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  //IF not logged in, redirect to Login page, unless they are at a create new user page
-
-  // res.render("LOGIN PAGE HERE");
-
-  //ELSE send to main page with favourited log ins.
-  res.render("index");
+  const templatevars = {user: req.session.userId}
+  res.render("index", templatevars);
 });
 
 
