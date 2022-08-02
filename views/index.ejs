@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Google Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Thasadith&display=swap" rel="stylesheet">
+
+
+<!-- App CSS -->
+<link rel="stylesheet" href="/styles/main.css" type="text/css" />
+
 <head>
   <title>Home Page</title>
 
@@ -13,8 +22,26 @@
   <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
-<body>
-  <h1>Have fun! 🥔</h1>
+<body class="favourited-logins">
+  <%- include('partials/_header.ejs') %>
+
+  <h1>Favourited Logins</h1>
+
+    <!-- AJAX REQUEST to fetch the desired log in info-->
+    <ul class = cards style="list-style: none">
+    <!--Default to Favourited logins for user -->
+    <!-- Can add more icons as needed for larger views-->
+    <li class="card">1</li>
+    <li class="card">2</li>
+    <li class="card">3</li>
+    <li class="card">4</li>
+  </ul>
+
+  <form action = "/register", method = "GET">
+    <button class="signup">SIGN UP NOW!</button>
+  </form>
+
+  <%- include('partials/_footer.ejs') %>
 </body>
 
 </html>

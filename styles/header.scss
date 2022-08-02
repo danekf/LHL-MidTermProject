@@ -1,0 +1,54 @@
+header {
+
+  span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+  }
+
+  .top-bar {
+    background-color: #FFFFFF;
+    display: flex;
+    height: 75px;
+    color: #2d3142;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue';
+    font-size: 300%;
+  }
+
+  .fa-star {
+    color: #4f5d75;
+    padding: 10px;
+  }
+
+  .fa-star:hover {
+    color: #fca311;
+  }
+
+  .login {
+    padding: 10px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ef8354;
+    color: #FFFFFF;
+    padding: 10px;
+  }
+
+  .fa-angles-right {
+
+    color: #FFFFFF;
+    font-size: x-large;
+  }
+
+}
+

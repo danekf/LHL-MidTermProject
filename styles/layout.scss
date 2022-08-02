@@ -1,6 +1,21 @@
 // See: https://sass-lang.com/
 
-body,
-html {
+
+/*
+ * Global layout stuff / Table Styles
+ */
+
+
+body {
   margin: 0;
+  font-family: 'Thasadith';
+  background-color: #ffffff;
 }
+
+/* Desktop Styles
+  to be implemented later
+  */
+
+  // @media screen and (min-width: 1024px) {
+
+  // }

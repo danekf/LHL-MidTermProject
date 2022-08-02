@@ -36,12 +36,21 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
+const registerRoutes = require("./routes/register");
+const addNewRoutes = require("./routes/addNew");
+const editRoutes = require("./routes/edit");
+const loginRoutes = require("./routes/login");
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+
+app.use("/register", registerRoutes());
+app.use("/addNewLogin", addNewRoutes());
+app.use("/editLogin", editRoutes());
+app.use("/login", loginRoutes(db));
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -49,8 +58,41 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
+  //IF not logged in, redirect to Login page, unless they are at a create new user page
+
+  // res.render("LOGIN PAGE HERE");
+
+  //ELSE send to main page with favourited log ins.
   res.render("index");
 });
+
+
+
+
+
+
+
+////////////////////////////////////////////
+//TEMPORARY UNTIL WE GET THE POP UP WORKING!
+////////////////////////////////////////////
+
+app.get("/password", (req, res) =>{
+  res.render("partials/_generatePassword");
+});
+
+
+
+
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//TEMPORARY UNTIL WE GET THE POP UP WORKING!
+////////////////////////////////////////////
+
+
+
+
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
