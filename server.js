@@ -45,7 +45,6 @@ const loginRoutes = require("./routes/login");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-
 app.use("/register", registerRoutes());
 app.use("/addNewLogin", addNewRoutes());
 app.use("/editLogin", editRoutes());
@@ -58,19 +57,11 @@ app.use("/login", loginRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  //IF not logged in, redirect to Login page, unless they are at a create new user page
-
+  // If not logged in, redirect to Login page, unless they are at the registeration page
   // res.render("LOGIN PAGE HERE");
-
-  //ELSE send to main page with favourited log ins.
+  // Else send to main page with favourited logins.
   res.render("index");
 });
-
-
-
-
-
-
 
 ////////////////////////////////////////////
 //TEMPORARY UNTIL WE GET THE POP UP WORKING!
@@ -80,20 +71,10 @@ app.get("/password", (req, res) =>{
   res.render("partials/_generatePassword");
 });
 
-
-
-
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //TEMPORARY UNTIL WE GET THE POP UP WORKING!
 ////////////////////////////////////////////
 
-
-
-
-
-
-
-
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Signum App is listening on port ${PORT}`);
 });
