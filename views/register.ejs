@@ -15,6 +15,8 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/register.js"></script>
+
 
     <title>Registeration Page</title>
   </head>
@@ -25,10 +27,28 @@
     <h1>Register</h1>
     <h2>Sign up today to save passwords securely</h2>
 
-    <form action="/register" method="POST">
-      <input type = "email" placeholder="Email"></input>
-      <input type = "username" placeholder="Username"></input>
-      <input type = "password" placeholder="Password"></input>
+    <span id="error-message-empty" class="error-message-box">
+      <i class="fas fa-exclamation-triangle" style= "color: red"></i>
+      Please Fill in all of the required fields before signing up!
+      <i class="fas fa-exclamation-triangle" style= "color: red"></i>
+    </span>
+    <span id="error-message-email-exists" class="error-message-box">
+      <i class="fas fa-exclamation-triangle" style= "color: red"></i>
+      This email is already registered to an existing account!
+      <i class="fas fa-exclamation-triangle" style= "color: red"></i>
+    </span>
+    <span id="error-message-username-unavailable" class="error-message-box">
+      <i class="fas fa-exclamation-triangle" style= "color: red"></i>
+      This username is unavailable!
+      <i class="fas fa-exclamation-triangle" style= "color: red"></i>
+    </span>
+    <form action="/register" method="POST" class="registeration-form">
+      <span></span>
+      <input type = "email" name="email" placeholder="Email" class="email"></input>
+      <input type = "username" name="username" placeholder="Username" class="username"></input>
+      <input type = "password" name="password" placeholder="Password" class="password"></input>
+      <input type = "text" name="firstName" placeholder="First Name" class="firstName"></input>
+      <input type = "text" name="lastName" placeholder="Last Name" class="lastName"></input>
       <button type="submit"> Sign up</button>
     </form>
   </div>
