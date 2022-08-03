@@ -35,11 +35,11 @@
         <li></li>
         <li></li>
       </ul>
-    <%- if (user) { %>
-      <form action = "/register", method = "GET">
+    <% if (user) { %>
+      <form action = "/addNewLogin", method = "GET">
         <button class="add-new-login">Add a new account!</button>
       </form>
-    <%- } else { %>
+    <% } else { %>
       <form action="/register" method="GET">
       <button >Register Today!</button>
       </form>
