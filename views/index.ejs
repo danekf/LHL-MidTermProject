@@ -28,22 +28,7 @@
 
     <h1>My Favourites</h1>
 
-      <!-- AJAX REQUEST to fetch the desired log in info-->
-      <ul class = cards style="list-style: none">
-        <li class=""></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    <% if (user) { %>
-      <form action = "/addNewLogin", method = "GET">
-        <button class="add-new-login">Add a new account!</button>
-      </form>
-    <% } else { %>
-      <form action="/register" method="GET">
-      <button >Register Today!</button>
-      </form>
-    <% } %>
+   
 
     <%- include('partials/_footer.ejs') %>
   </body>

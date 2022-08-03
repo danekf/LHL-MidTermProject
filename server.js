@@ -8,6 +8,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const cookieSession = require('cookie-session');
+const bcrypt = require('bcryptjs');
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -53,7 +54,7 @@ const addNewRoutes = require("./routes/addNew");
 const editRoutes = require("./routes/edit");
 const loginRoutes = require("./routes/login");
 const logoutRoutes = require("./routes/logout");
-
+const indexRoutes = require("./routes/index");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -63,6 +64,8 @@ app.use("/addNewLogin", addNewRoutes());
 app.use("/editLogin", editRoutes());
 app.use("/login", loginRoutes(db));
 app.use("/logout", logoutRoutes());
+app.use("/index", indexRoutes(db));
+
 
 // Note: mount other resources here, using the same pattern above
 

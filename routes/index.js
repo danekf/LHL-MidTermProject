@@ -7,7 +7,6 @@
 
 const express = require('express');
 const router  = express.Router();
-const bcrypt = require('bcryptjs');
 
 
 
@@ -16,6 +15,12 @@ module.exports = (db) => {
     //if logged in, redirect
 
     if (req.session.userId){
+      const queryString = `
+      SELECT *
+      FROM user_saved_logins
+      WHERE favourite = true
+      ;`;
+      const templateVars = {user: req.session.userId, queryString}
       res.redirect("/");
     }
 
@@ -28,28 +33,24 @@ module.exports = (db) => {
     console.log(`request: ${req.body}`);
 
     //get user provided login and password
-    const login = req.body.login;
-    const password = req.body.password;
-    console.log(password);
+    const {login, password} = req.body;
     console.log(`Login: ${login} password: ${password}`)
 
     const queryString = `
     SELECT *
     FROM users
-    WHERE email = $1
-    OR username = $1
+    WHERE (email = $1 AND password = $2)
+    OR (username = $1 AND password = $2)
     ;`;
 
-    const queryValues = [`${login}`];
+    const queryValues = [`${login}`, `${password}`];
 
     //query db for login info
     db.query(queryString, queryValues)
     .then(data => {
-      console.log('user object:' , data.rows[0])
        //set session cookie, with the logged in users username
-      if(!data.rows[0] || (!bcrypt.compareSync(password, data.rows[0].password))){
-        console.log(bcrypt.compareSync(password, data.rows[0].password));
-        const templateVars = {user: "", error: "Login error, please verify and try again."}
+      if(!data.rows[0]){
+        const templateVars = {user: "", error: "Login not found, please verify and try again."}
         res.render("login", templateVars);
       }
       else{
