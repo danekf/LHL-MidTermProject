@@ -72,6 +72,7 @@ div {
 .modal-header {
   width: 100%;
   background-color: #EF8354;
+  color: white;
 
 }
 
@@ -122,34 +123,34 @@ div {
   height: 25px;
   width: 25px;
   background-color: #eee;
-  padding-right: 25px;
-
+  margin-right: 5px;
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.modal-body .container:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+/* When the checkbox is checked, add a yellow background */
+.modal-body .container input:checked ~ .checkmark {
   background-color: #FCA311;
 }
 
+
 /* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+.modal-body .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.modal-body .container input:checked ~ .checkmark:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.modal-body .container .checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
