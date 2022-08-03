@@ -1,6 +1,6 @@
 
 $(document).ready(() => {
-  $('#copyToClipboard').on('click',
+  $('#copyPasswordToClipboard').on('click',
   (event) => {
     let password = $("#password-field");
     $(password).select();

@@ -61,7 +61,7 @@ module.exports = (db) => {
     })
     .catch(err => {
       console.log(err);
-
+      const templateVars = {user: req.session.userId, error: ""};
       res.render("login", templateVars);
     });
   });
