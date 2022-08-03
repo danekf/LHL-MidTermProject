@@ -3,7 +3,7 @@ $(document).ready(() => {
   $('#user_login').submit(
     (event) => {
       let login = $("#login").val();
-      let password = $("#password").val();
+      let password = $("#password-field").val();
 
       //check that the user actually input data, interupt ONLY if there is an issue
       if (login.length === 0){
