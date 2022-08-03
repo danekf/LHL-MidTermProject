@@ -12,7 +12,7 @@ const router  = express.Router();
 
 module.exports = () => {
   router.get("/", (req, res) => {
-    res.render("addNewLogin")
+    res.render("addNewLogin");
   });
 
 

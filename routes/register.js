@@ -14,7 +14,8 @@ module.exports = (db) => {
     if (req.session.userId) {
       res.redirect('/');
     }
-    res.render("register");
+    const templateVars = {user: req.session.userId, message: ''};
+    res.render("register", templateVars );
   });
 
   // Register a new user:
@@ -26,27 +27,42 @@ module.exports = (db) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
 
-    console.log(req.body);
-    const queryString = `
-      INSERT INTO
-        users
-        (email, username, password, first_name, last_name)
-      VALUES
-        ($1, $2, $3, $4, $5)
-        RETURNING *;
-      `;
-      const queryValues = [`${email}`, `${username}`, `${password}`, `${firstName}`, `${lastName}`];
+    console.log("Post requested....")
 
-      // Query the db to see if information already exists:
-    db.query(queryString, queryValues)
-    .then(data => {
-        req.session.userId = data.rows[0].username;
-        return res.redirect('/');
-    })
-    .catch(err => {
-      console.log(err);
-    })
-  })
+    // if (username && email) {
+      db.query(`SELECT * FROM users WHERE email = $1 OR username = $2`, [email, username])
+        .then(data => {
+          let message = '';
+          //if found report that to user
+          if (!data.rows[0]) {
+            console.log("registering user...");
+            const queryString = `
+            INSERT INTO
+              users
+              (email, username, password, first_name, last_name)
+            VALUES
+              ($1, $2, $3, $4, $5)
+              RETURNING *;
+            `;
+            const queryValues = [`${email}`, `${username}`, `${password}`, `${firstName}`, `${lastName}`];
+            db.query(queryString, queryValues)
+              .then(data => {
+                req.session.userId = data.rows[0];
+                return res.redirect('/');
+              })
+              .catch(err => {
+                console.log(err);
+              });
+
+          }
+          //if not found go ahead and register
+          else {
+            message += "Email or username already registered!";
+            const templateVars = {user: '', message: message};
+            res.render("register", templateVars); //re render the page with the new messages in place
+          }
+        });
+  });
+
   return router;
 };
-
