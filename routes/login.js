@@ -13,9 +13,9 @@ const router  = express.Router();
 module.exports = (db) => {
   router.get("/", (req, res) => {
     //if logged in, redirect
+
     if (req.session.userId){
-      const templateVars = {user: req.session.userId};
-      res.redirect("index", templateVars);
+      res.redirect("/");
     }
 
     const templatevars = {user: req.session.userId, error: ""};
@@ -44,8 +44,7 @@ module.exports = (db) => {
     .then(data => {
 
       req.session.userId = data.rows[0]; //set session cookie, with the logged in users username
-      const templateVars = {user: req.session.userId, error: ""};
-      res.render("index", templateVars);
+      res.redirect("/");
 
     })
     .catch(err => {
