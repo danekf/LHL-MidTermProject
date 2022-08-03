@@ -11,7 +11,7 @@ module.exports = (db) => {
   router.post("/", (req, res) => {
     req.session = null;
     const templatevars = {user: ""}
-    res.render("index", templatevars);
+    res.redirect("/", templatevars);
   });
 
   return router;

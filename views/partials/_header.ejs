@@ -27,7 +27,7 @@
     <!--Show login/username depending on if user is logged  or not-->
     <% if(user){ %>
       <form action="/logout" method="POST">
-        Logged in as <%= user.username %>
+        <p>Logged in as <%= user.username %></p>
         <button>Logout</button>
       </form>
 
