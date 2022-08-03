@@ -12,7 +12,8 @@ const router  = express.Router();
 
 module.exports = () => {
   router.get("/", (req, res) => {
-    res.render("addNewLogin");
+    const templatevars = {user: req.session.userId}
+    res.render("addNewLogin", templatevars)
   });
 
 

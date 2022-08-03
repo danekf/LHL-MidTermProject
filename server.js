@@ -13,20 +13,23 @@ const cookieSession = require('cookie-session');
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
-db.connect();
 
-// Load the logger first so all (static) HTTP requests are logged to STDOUT
-// 'dev' = Concise output colored by response status for development use.
-//         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
-app.set("view engine", "ejs");
+db.connect()
+.then(()=>  console.log("connected"))
+  .catch(err => console.log(err))
 
-app.use(morgan("dev"));
-app.use(
-  cookieSession({
-    name: "session",
-    keys:["potatoes make burgers great", "There once was a man from nantucket"]
-  })
-);
+  // Load the logger first so all (static) HTTP requests are logged to STDOUT
+  // 'dev' = Concise output colored by response status for development use.
+  //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+  app.use(morgan("dev"));
+  app.use(
+    cookieSession({
+      name: "session",
+      keys:["potatoes make burgers great", "There once was a man from nantucket"] //just some keys to cycle through
+    })
+  );
+
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -46,6 +49,7 @@ const registerRoutes = require("./routes/register");
 const addNewRoutes = require("./routes/addNew");
 const editRoutes = require("./routes/edit");
 const loginRoutes = require("./routes/login");
+const logoutRoutes = require("./routes/logout");
 
 
 // Mount all resource routes
@@ -55,6 +59,7 @@ app.use("/register", registerRoutes(db));
 app.use("/addNewLogin", addNewRoutes());
 app.use("/editLogin", editRoutes());
 app.use("/login", loginRoutes(db));
+app.use("/logout", logoutRoutes());
 
 // Note: mount other resources here, using the same pattern above
 
@@ -63,23 +68,9 @@ app.use("/login", loginRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  // If not logged in, redirect to Login page, unless they are at the registeration page
-  // res.render("LOGIN PAGE HERE");
-  // Else send to main page with favourited logins.
-  res.render("index");
+  const templatevars = {user: req.session.userId}
+  res.render("index", templatevars);
 });
-
-////////////////////////////////////////////
-//TEMPORARY UNTIL WE GET THE POP UP WORKING!
-////////////////////////////////////////////
-
-app.get("/password", (req, res) =>{
-  res.render("partials/_generatePassword");
-});
-
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-//TEMPORARY UNTIL WE GET THE POP UP WORKING!
-////////////////////////////////////////////
 
 app.listen(PORT, () => {
   console.log(`Signum App is listening on port ${PORT}`);
