@@ -12,6 +12,11 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    //if not logged in, redirect to login with message to user
+    if (!req.session.userId) {
+      res.redirect('/login')
+    }
+
     const templatevars = {user: req.session.userId}
     res.render("addNewLogin", templatevars)
   });
