@@ -30,7 +30,7 @@
           if ($(".check-container input:checkbox:checked").length > 0) {
             $('#passwordBtn').prop('disabled', false);
             $("#error-1").hide();
-            $("#passwordBtn").attr("data-bs-dismiss", "modal")
+            //$("#passwordBtn").attr("data-bs-dismiss", "modal")
           }
         });
 
