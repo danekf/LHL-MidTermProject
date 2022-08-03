@@ -15,219 +15,195 @@
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/login.css" type="text/css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"
+    type="text/css" />
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 
 <body>
   <%- include('partials/_header.ejs') %>
-  <div class="add-new-login-page flex">
-    <h1>Add new Saved Login</h1>
+    <div class="add-new-login-page flex">
+      <h1>Add new Saved Login</h1>
 
-    <form>
-      <input type = "text" placeholder="username/email"></input>
-    </form>
-
-    <form>
-      <input type = "text" placeholder="Log in URL (optional)"></input>
-    </form>
-
-    <div class="password-input">
       <form>
-        <input type = "text" placeholder="password"></input>
+        <input type="text" placeholder="username/email"></input>
       </form>
-      <i class="fa-solid fa-copy"></i>
+
+      <form>
+        <input type="text" placeholder="Log in URL (optional)"></input>
+      </form>
+
+      <div class="password-input">
+        <form>
+          <input type="text" placeholder="password" id="password-field"></input>
+        </form>
+        <i class="fa-solid fa-copy"></i>
+      </div>
+
+      <button data-bs-toggle="modal" data-bs-target="#passwordModal">Or user our SECURE PASSWORD CREATOR</button>
+      <!-- AJAX POPUP OF _generatePassword Partial-->
+
+      <form>
+        <input type="text" placeholder="Name this login"></input>
+      </form>
+
+      <button> Save Login Info </button>
     </div>
 
-    <button data-bs-toggle="modal" data-bs-target="#passwordModal">Or user our SECURE PASSWORD CREATOR</button> <!-- AJAX POPUP OF _generatePassword Partial-->
 
-    <form>
-      <input type = "text" placeholder="Name this login"></input>
-    </form>
+  <!-- Modal -->
+  <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="passwordModalLabel">Create Secure Password</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
 
-    <button> Save Login Info </button>
-  </div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="passwordModalLabel">Create Secure Password</h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-
-          <div class="options">
-            <div class="sections">
-              <h4>Password Length</h4>
+            <div class="options">
+              <div class="sections">
+                <h4>Password Length</h4>
                 <form>
-                <div id="slideContainer">
-                  <input type = "text" class="sliderValue" data-index="0" value="10" >
+                  <div id="slideContainer">
+                    <input type="text" class="sliderValue" data-index="0" value="10">
+                  </div>
+                  <div id="slider"></div>
+                </form>
+              </div>
+
+
+
+              <div class="sections">
+                <h4>Contains</h4>
+
+                <div class="container check-container">
+                  <input type="checkbox" id="uppercaseCheck">
+                  <span class="checkmark"></span>
+                  <label>Uppercase</label>
                 </div>
-                <div id="slider"></div>
-              </form>
-            </div>
 
 
-
-            <div class="sections">
-              <h4>Contains</h4>
-
-              <div class="container check-container">
-                <input type="checkbox" id="uppercaseCheck">
-                <span class="checkmark"></span>
-                <label>Uppercase</label>
-              </div>
+                <div class="container check-container">
+                  <input type="checkbox" id="lowercaseCheck">
+                  <span class="checkmark"></span>
+                  <label>Lowercase</label>
+                </div>
 
 
-              <div class="container check-container">
-                <input type="checkbox" id="lowercaseCheck">
-                <span class="checkmark"></span>
-                <label>Lowercase</label>
-              </div>
+                <div class="container check-container">
+                  <input type="checkbox" id="numCheck">
+                  <span class="checkmark"></span>
+                  <label>Numbers</label>
+                </div>
 
-
-              <div class="container check-container">
-                <input type="checkbox" id="numCheck">
-                <span class="checkmark"></span>
-                <label>Numbers</label>
-              </div>
-
-              <div class="container check-container">
-                <input type="checkbox" id="symCheck">
-                <span class="checkmark"></span>
-                <label>Symbols</label>
+                <div class="container check-container">
+                  <input type="checkbox" id="symCheck">
+                  <span class="checkmark"></span>
+                  <label>Symbols</label>
+                </div>
               </div>
             </div>
-          </div>
 
-          <button class="submit btn btn-primary" id="passwordBtn" type="submit" data-bs-dismiss="modal">Generate Password</button>
+            <button class="submit btn btn-primary" id="passwordBtn" type="submit" data-bs-dismiss="modal">Generate
+              Password</button>
         </div>
         </form>
       </div>
-      </div>
     </div>
   </div>
-</div>
+  </div>
+  </div>
 
-<%- include('partials/_footer.ejs') %>
-<script
-  src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
-  integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
-  crossorigin="anonymous"></script>
-<script>
-  $(document).ready(function() {
-    $("#slider").slider({
-        min: 0,
-        max: 100,
-        step: 1,
-        values: [10],
-        slide: function(event, ui) {
+  <%- include('partials/_footer.ejs') %>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+      integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function () {
+        $("#slider").slider({
+          min: 0,
+          max: 100,
+          step: 1,
+          values: [10],
+          slide: function (event, ui) {
             for (let i = 0; i < ui.values.length; ++i) {
-                $("input.sliderValue[data-index=" + i + "]").val(ui.values[i]);
+              $("input.sliderValue[data-index=" + i + "]").val(ui.values[i]);
             }
-        }
+          }
+        });
+
+        $("input.sliderValue").change(function () {
+          let $this = $(this);
+          $("#slider").slider("values", $this.data("index"), $this.val());
+        });
+
+        $(".check-container").click(function () {
+          let checkbox = $(this).find("input[type='checkbox']");
+          let checked = checkbox.prop('checked');
+          checkbox.prop("checked", !checked);
+        });
+
+
+  $("#passwordBtn").click(function () {
+    let result = '';
+    console.log('in here');
+    //console.log($('input.sliderValue').val());
+    let uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let lowercase = 'abcdefghijklmnopqrstuvwxyz';
+    let numbers = '0123456789';
+    let symbols = '~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\';
+    let i = 0;
+    let length = $('input.sliderValue').val()
+
+
+    while (i < length) {
+      if ($("#uppercaseCheck").prop('checked')) {
+        console.log('yes uppercase');
+        result += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
+        i++;
+      }
+      if ($("#lowercaseCheck").prop('checked')) {
+        console.log('yes lowercase');
+        result += lowercase.charAt(Math.floor(Math.random() * lowercase.length));
+        i++;
+      }
+      if ($("#numCheck").prop('checked')) {
+        console.log('yes number');
+        result += numbers.charAt(Math.floor(Math.random() * numbers.length));
+        i++;
+      }
+      if ($("#symCheck").prop('checked')) {
+        console.log('yes symbol');
+        result += symbols.charAt(Math.floor(Math.random() * symbols.length));
+        i++;
+      }
+    }
+    console.log(result);
+
+    // shuffle characters to avoid predictability
+    let arr = result.split('');
+    console.log(arr);
+
+    arr.sort(function () {
+      return 0.5 - Math.random();
     });
 
-    $("input.sliderValue").change(function() {
-        let $this = $(this);
-        $("#slider").slider("values", $this.data("index"), $this.val());
-    });
+    console.log(arr);
+    let password = arr.join('');
+    console.log(password);
 
-    $( ".check-container" ).click(function() {
-      let checkbox = $(this).find("input[type='checkbox']");
-      let checked = checkbox.prop('checked');
-      checkbox.prop("checked", !checked);
-    });
+    $('#password-field').val(password);
 
-    function shuffle(s) {
-  var arr = s.split('');           // Convert String to array
 
-  arr.sort(function() {
-    return 0.5 - Math.random();
   });
-  s = arr.join('');                // Convert Array to string
-  return s;                        // Return shuffled string
-}
-
-$( "#passwordBtn" ).click(function() {
-  let result = '';
-console.log('in here');
-//console.log($('input.sliderValue').val());
-  let uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  let lowercase = 'abcdefghijklmnopqrstuvwxyz';
-  let numbers = '0123456789';
-  let symbols = '~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\';
-  let i = 0;
-  let length = $('input.sliderValue').val()
 
 
-  while (i < length) {
-    if ($("#uppercaseCheck").prop('checked')) {
-      console.log('yes uppercase');
-      result += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
-      i++;
-    }
-   if ($("#lowercaseCheck").prop('checked')) {
-      console.log('yes lowercase');
-      result += lowercase.charAt(Math.floor(Math.random() * lowercase.length));
-      i++;
-    }
-    if ($("#numCheck").prop('checked')) {
-      console.log('yes number');
-      result += numbers.charAt(Math.floor(Math.random() * numbers.length));
-      i++;
-    }
-    if ($("#symCheck").prop('checked')) {
-      console.log('yes symbol');
-    result += symbols.charAt(Math.floor(Math.random() * symbols.length));
-    i++;
-  }
-}
-console.log(result);
-});
-
-
-// function generatePassword(length) {
-//   let result = '';
-
-//   let uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-//   let lowercase = 'abcdefghijklmnopqrstuvwxyz';
-//   let numbers = '0123456789';
-//   let symbols = '~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\';
-//   let i = 0;
-
-//   while (i < length) {
-//     if ($("#uppercaseCheck".prop('checked'))) {
-//       console.log('yes uppercase');
-//       result += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
-//       i++;
-//     }
-//     if ($("#lowercaseCheck".prop('checked'))) {
-//       result += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
-//       i++;
-//     }
-//     if ($("#numCheck".prop('checked'))) {
-//       result += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
-//       i++;
-//     }
-//     if ($("#symCheck".prop('checked'))) {
-//       result += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
-//       i++;
-//     }
-//   }
-
-//   console.log(result);
-//   return shuffle(result);
-// }
-
-
- });
-</script>
+  });
+  </script>
 </body>
+
 </html>
