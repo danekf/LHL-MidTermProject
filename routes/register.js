@@ -7,6 +7,8 @@
 
 const express = require('express');
 const router  = express.Router();
+const bcrypt = require("bcryptjs");
+
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -23,11 +25,10 @@ module.exports = (db) => {
     // Create a new user with the login information below:
     const email = req.body.email;
     const username = req.body.username;
-    const password = req.body.password;
+    const password = bcrypt.hashSync(req.body.password, 10);
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
-
-    console.log("Post requested....")
+    //const hashedPassword = bcrypt.hashSync(password, 10); // Password encryption
 
     // if (username && email) {
       db.query(`SELECT * FROM users WHERE email = $1 OR username = $2`, [email, username])
