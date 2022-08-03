@@ -4,8 +4,8 @@ CREATE TABLE user_saved_logins (
   user_id INTEGER REFERENCES users(id),
   saved_username VARCHAR(255) NOT NULL,
   saved_password VARCHAR(255) NOT NULL,
-  login_URL VARCHAR(255) DEFAULT,
-  service_name VARCHAR(255) NOT NULL, --user given title for their saved log in for easy reference
+  login_URL VARCHAR(255),
+  service_name VARCHAR(255) NOT NULL,
   favourite BOOLEAN DEFAULT FALSE
 );
 

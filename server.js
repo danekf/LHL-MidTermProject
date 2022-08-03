@@ -7,17 +7,29 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
-db.connect();
 
-// Load the logger first so all (static) HTTP requests are logged to STDOUT
-// 'dev' = Concise output colored by response status for development use.
-//         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
-app.use(morgan("dev"));
+db.connect()
+.then(()=>  console.log("connected"))
+  .catch(err => console.log(err))
+
+  // Load the logger first so all (static) HTTP requests are logged to STDOUT
+  // 'dev' = Concise output colored by response status for development use.
+  //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+  app.use(morgan("dev"));
+  app.use(
+    cookieSession({
+      name: "session",
+      keys:["potatoes make burgers great", "There once was a man from nantucket"] //just some keys to cycle through
+    })
+  );
+
+
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -40,6 +52,7 @@ const registerRoutes = require("./routes/register");
 const addNewRoutes = require("./routes/addNew");
 const editRoutes = require("./routes/edit");
 const loginRoutes = require("./routes/login");
+const logoutRoutes = require("./routes/logout");
 
 
 // Mount all resource routes
@@ -50,6 +63,7 @@ app.use("/register", registerRoutes());
 app.use("/addNewLogin", addNewRoutes());
 app.use("/editLogin", editRoutes());
 app.use("/login", loginRoutes(db));
+app.use("/logout", logoutRoutes());
 
 // Note: mount other resources here, using the same pattern above
 
@@ -58,12 +72,8 @@ app.use("/login", loginRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  //IF not logged in, redirect to Login page, unless they are at a create new user page
-
-  // res.render("LOGIN PAGE HERE");
-
-  //ELSE send to main page with favourited log ins.
-  res.render("index");
+  const templatevars = {user: req.session.userId}
+  res.render("index", templatevars);
 });
 
 

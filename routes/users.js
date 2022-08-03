@@ -39,21 +39,6 @@ module.exports = (db) => {
 
   });
 
-  //log in example
-  router.get("/login", (req, res) =>{
-    //COMPLETE EXAMPLE ATM! NOT COMPLETE!
-    db.query(`SELECT * FROM users WHERE email = email, username = username, password = password;`)
-    .then(data => {
-      const users = data.rows;
-      res.json({ users });
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
-
-  });
 
 
 
