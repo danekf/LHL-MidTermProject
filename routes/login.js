@@ -18,8 +18,8 @@ module.exports = (db) => {
       res.redirect("/");
     }
 
-    const templatevars = {user: req.session.userId, error: ""};
-    res.render("login", templatevars);
+    const templateVars = {user: req.session.userId, error: ""};
+    res.render("login", templateVars);
   });
 
   //login
@@ -42,14 +42,21 @@ module.exports = (db) => {
     //query db for login info
     db.query(queryString, queryValues)
     .then(data => {
+       //set session cookie, with the logged in users username
+      if(!data.rows[0]){
+        const templateVars = {user: "", error: "Login not found, please verify and try again."}
+        res.render("login", templateVars);
+      }
+      else{
+        req.session.userId = data.rows[0];
+        res.redirect("/");
+      }
 
-      req.session.userId = data.rows[0]; //set session cookie, with the logged in users username
-      res.render("login");
 
     })
     .catch(err => {
       console.log(err);
-      const templateVars = {user: "", error: "Login not found, please verify and try again."}
+
       res.render("login", templateVars);
     });
   });
