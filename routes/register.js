@@ -40,12 +40,11 @@ module.exports = (db) => {
       // Query the db to see if information already exists:
     db.query(queryString, queryValues)
     .then(data => {
-      req.session.userId = data.rows[0].username;
-      return res.redirect('/');
+        req.session.userId = data.rows[0].username;
+        return res.redirect('/');
     })
     .catch(err => {
-      return res.status(500)
-      .json({errror: err.message})
+      console.log(err);
     })
   })
   return router;
