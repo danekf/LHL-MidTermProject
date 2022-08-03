@@ -1,4 +1,6 @@
       $(document).ready(function () {
+
+        //password generator
         $("#slider").slider({
           min: 0,
           max: 100,
@@ -37,43 +39,46 @@
 
 
   $("#passwordBtn").click(function() {
-    let result = '';
-    let uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let lowercase = 'abcdefghijklmnopqrstuvwxyz';
-    let numbers = '0123456789';
-    let symbols = '~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\';
-    let i = 0;
-    let length = $('input.sliderValue').val()
+
+      let result = '';
+      let uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      let lowercase = 'abcdefghijklmnopqrstuvwxyz';
+      let numbers = '0123456789';
+      let symbols = '~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\';
+      let i = 0;
+      let length = $('input.sliderValue').val()
 
 
-    while (i < length) {
-      if ($("#uppercaseCheck").prop('checked')) {
-        result += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
-        i++;
+      while (i < length) {
+        if ($("#uppercaseCheck").prop('checked')) {
+          result += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
+          i++;
+        }
+        if ($("#lowercaseCheck").prop('checked')) {
+          result += lowercase.charAt(Math.floor(Math.random() * lowercase.length));
+          i++;
+        }
+        if ($("#numCheck").prop('checked')) {
+          result += numbers.charAt(Math.floor(Math.random() * numbers.length));
+          i++;
+        }
+        if ($("#symCheck").prop('checked')) {
+          result += symbols.charAt(Math.floor(Math.random() * symbols.length));
+          i++;
+        }
       }
-      if ($("#lowercaseCheck").prop('checked')) {
-        result += lowercase.charAt(Math.floor(Math.random() * lowercase.length));
-        i++;
-      }
-      if ($("#numCheck").prop('checked')) {
-        result += numbers.charAt(Math.floor(Math.random() * numbers.length));
-        i++;
-      }
-      if ($("#symCheck").prop('checked')) {
-        result += symbols.charAt(Math.floor(Math.random() * symbols.length));
-        i++;
-      }
-    }
 
-    let arr = result.split('');
+      let arr = result.split('');
 
-    arr.sort(function () {
-      return 0.5 - Math.random();
-    });
+      arr.sort(function () {
+        return 0.5 - Math.random();
+      });
 
-    let password = arr.join('');
+      let password = arr.join('');
 
-    $('#password-field').val(password);
+      $('#password-field').val(password);
+
+
 
   });
 

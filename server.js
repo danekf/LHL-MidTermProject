@@ -60,7 +60,7 @@ const indexRoutes = require("./routes/index");
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/register", registerRoutes(db));
-app.use("/addNewLogin", addNewRoutes());
+app.use("/addNewLogin", addNewRoutes(db));
 app.use("/editLogin", editRoutes());
 app.use("/login", loginRoutes(db));
 app.use("/logout", logoutRoutes());
