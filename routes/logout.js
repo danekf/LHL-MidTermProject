@@ -10,8 +10,7 @@ module.exports = (db) => {
 //logout
   router.post("/", (req, res) => {
     req.session = null;
-    const templatevars = {user: ""}
-    res.redirect("/", templatevars);
+    res.redirect("/");
   });
 
   return router;
