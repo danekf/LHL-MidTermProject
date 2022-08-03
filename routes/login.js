@@ -44,7 +44,7 @@ module.exports = (db) => {
     .then(data => {
 
       req.session.userId = data.rows[0]; //set session cookie, with the logged in users username
-      res.redirect("/");
+      res.render("login");
 
     })
     .catch(err => {
