@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+  <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Thasadith&display=swap" rel="stylesheet">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-<!-- Google Fonts-->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Thasadith&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
 
-
-<!-- App CSS -->
-<link rel="stylesheet" href="/styles/main.css" type="text/css" />
-
-<head>
-  <title>Home Page</title>
-
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+    <title>Home Page</title>
 </head>
 
-<body class="favourited-logins">
-  <%- include('partials/_header.ejs') %>
+  <body class="favourited-logins">
+    <%- include('partials/_header.ejs') %>
 
-  <h1>Favourited Logins</h1>
+    <h1>My Favourites</h1>
 
-    <!-- AJAX REQUEST to fetch the desired log in info-->
-    <ul class = cards style="list-style: none">
-    <!--Default to Favourited logins for user -->
-    <!-- Can add more icons as needed for larger views-->
-    <li class="card">1</li>
-    <li class="card">2</li>
-    <li class="card">3</li>
-    <li class="card">4</li>
-  </ul>
+      <!-- AJAX REQUEST to fetch the desired log in info-->
+      <ul class = cards style="list-style: none">
+        <li class=""></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    <%- if (user) { %>
+      <form action = "/register", method = "GET">
+        <button class="add-new-login">Add a new account!</button>
+      </form>
+    <%- } else { %>
+      <form action="/register" method="GET">
+      <button >Register Today!</button>
+      </form>
+    <% } %>
 
-  <form action = "/register", method = "GET">
-    <button class="signup">SIGN UP NOW!</button>
-  </form>
-
-  <%- include('partials/_footer.ejs') %>
-</body>
+    <%- include('partials/_footer.ejs') %>
+  </body>
 
 </html>
