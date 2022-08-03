@@ -7,40 +7,47 @@
 
 const express = require('express');
 const router  = express.Router();
-const addUser = require('../public/scripts/database')
-const getUserByUsername = require('../public/scripts/database')
-const getUserWithEmail = require('../public/scripts/database')
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    // If user is already logged in:
+    if (req.session.userId) {
+      res.redirect('/');
+    }
     res.render("register");
   });
 
+  // Register a new user:
   router.post("/", (req, res) => {
-    router.post('/', (req, res) => {
-      const user = req.body;
-      db.addUser(user)
-      .then(user => {
-        if (!user) {
-          res.send({error: "error"});
-          return;
-        }
-        req.session.userId = user.id;
-        return res.redirect('/');
+    // Create a new user with the login information below:
+    const email = req.body.email;
+    const username = req.body.username;
+    const password = req.body.password;
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
 
-      })
-      .catch(e => res.send(e));
-    });
+    console.log(req.body);
+    const queryString = `
+      INSERT INTO
+        users
+        (email, username, password, first_name, last_name)
+      VALUES
+        ($1, $2, $3, $4, $5)
+        RETURNING *;
+      `;
+      const queryValues = [`${email}`, `${username}`, `${password}`, `${firstName}`, `${lastName}`];
 
-    // if (email === '' || username === '' || password === '') {
-    //   return res.status(400).send('Status Code 400: Error, please enter an email, username and/or password to proceed.');
-    // }
-    // if (username) {
-    //   return res.status(400).send('Status Code 400: Error, username is already in use.');
-    // }
-    // if (email) {
-    //   return res.status(400).send('Status Code 400: Error, email address is already registered.');
-    // }
+      // Query the db to see if information already exists:
+    db.query(queryString, queryValues)
+    .then(data => {
+      req.session.userId = data.rows[0].username;
+      return res.redirect('/');
+    })
+    .catch(err => {
+      return res.status(500)
+      .json({errror: err.message})
+    })
   })
   return router;
 };
+
