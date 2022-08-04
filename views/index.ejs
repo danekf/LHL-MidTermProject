@@ -30,13 +30,11 @@
     <h1> <%- Title %> </h1>
 
     <div class="container">
-      <!-- <% let counter = 1; %> -->
+
       <div class="row">
 
       <% for (let login in data) { %>
-        <!-- <% if (counter%2 === 1) {%> -->
 
-        <!-- <% } %> -->
 
             <div class="login-block col-6 col-md-4">
               <div id="icon-info">
@@ -45,24 +43,35 @@
                 </div>
                 <div id="feature-buttons">
                   <% if (data[login].favourite) { %>
-                    <i class="fa-solid fa-star favourites"></i>
+                    <form action = "/editlogin/removeFavourite" method = "POST">
+                     <button><i class="fa-solid fa-star favourites removeFavourite"></i></button>
+                    </form>
                   <% } else { %>
-                    <i class="fa-regular fa-star"></i>
+                    <form action = "/editlogin/favourite" method = "POST">
+                      <button><i class="fa-regular fa-star favourite"></i></button>
+                      <input type="hidden" name="saved_login_id" value = <%= data[login].id %> >
+                    </form>
                   <% } %>
-                  <i class ="fa-solid fa-pencil edit"></i>
                 </div>
-                Site Name: <%= data[login].service_name %> <br>
-                Username: <%= data[login].saved_username %>
-                <!-- Favourited: <%= data[login].favourite %> -->
-                <!-- Password: <%= data[login].saved_password %>
-                Login URL: <%= data[login].login_URL %> -->
+
+                <form action = "/editLogin" method = "POST">
+                  <button><i id="edit-icon" class ="fa-solid fa-pencil edit"></i></button>
+                </form>
+
+                  <div >Site Name: <%= data[login].service_name %></div>
+                  <input type="hidden" name="service_name" value = <%= data[login].service_name %> >
+                  <div >Username: <%= data[login].saved_username %></div>
+                  <input type="hidden" name="saved_username" value = <%= data[login].saved_username %> >
+                  <!-- DON'T WANT THIS INFO ON THIS PAGE will need on expanded icon
+                  <div><%= data[login].saved_password %></div>
+                  <input type="hidden" name="saved_password" value = <%= data[login].saved_password %> >
+                  <div ><%= data[login].login_URL %></div>
+                  <input type="hidden" name="login_URL" value = <%= data[login].login_URL %> > -->
+                  <input type="hidden" name="saved_login_id" value = <%= data[login].id %> >
+
               </div>
-
             </div>
-            <!-- <% counter ++; %> -->
-          <!-- <% if (counter%2 === 1) {%> -->
 
-          <!-- <% } %> -->
     <% } %>
         </div>
 

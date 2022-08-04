@@ -118,6 +118,19 @@
     align-items: center;
     justify-content: center;
   }
+
+  #edit-icon {
+    position: absolute;
+    top: 30px;
+    right: 6px;
+    i {
+      display: block}
+  }
+}
+
+button {
+  background-color: transparent;
+  border: 0;
 }
 
 .btn.btn-primary, .btn.btn-primary:hover {
