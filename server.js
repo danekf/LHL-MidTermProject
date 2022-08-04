@@ -54,7 +54,7 @@ const addNewRoutes = require("./routes/addNew");
 const editRoutes = require("./routes/edit");
 const loginRoutes = require("./routes/login");
 const logoutRoutes = require("./routes/logout");
-const indexRoutes = require("./routes/index");
+const homeRoutes = require("./routes/home");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -64,7 +64,7 @@ app.use("/addNewLogin", addNewRoutes(db));
 app.use("/editLogin", editRoutes());
 app.use("/login", loginRoutes(db));
 app.use("/logout", logoutRoutes());
-app.use("/index", indexRoutes(db));
+app.use("/home", homeRoutes(db));
 
 
 // Note: mount other resources here, using the same pattern above
@@ -74,8 +74,7 @@ app.use("/index", indexRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  const templatevars = {user: req.session.userId}
-  res.render("index", templatevars);
+  res.redirect("/home")
 });
 
 app.listen(PORT, () => {

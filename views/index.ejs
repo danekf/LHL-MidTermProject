@@ -19,16 +19,37 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scipts/loadFavourites.js"></script>
+
 
     <title>Home Page</title>
 </head>
 
-  <body class="favourited-logins">
+    <body class="favourited-logins">
     <%- include('partials/_header.ejs') %>
 
     <h1>My Favourites</h1>
+    <ul>
+      <% for (let login in data) { %>
+      <li>
+        Name: <%= data[login].service_name %>
+        Username: <%= data[login].saved_username %>
+        Password: <%= data[login].saved_password %>
+        Login URL: <%= data[login].login_URL %>
+      </li>
+      <br>
+    <% } %>
+    </ul>
 
-   
+    <% if (user) { %>
+      <form action = "/addNewLogin", method = "GET">
+        <button class="add-new-login">Add a new account!</button>
+      </form>
+    <% } else { %>
+      <form action="/register" method="GET">
+      <button >Register Today!</button>
+      </form>
+    <% } %>
 
     <%- include('partials/_footer.ejs') %>
   </body>
