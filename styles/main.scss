@@ -141,7 +141,23 @@ button {
   border: 0;
 }
 
-.btn.btn-primary, .btn.btn-primary:hover {
+.btn.btn-primary{
+  background-color: #4f6475;
+  border-color: #4f6475;;
+}
+
+.btn.btn-primary:hover {
   background-color: #4F5D75;
   border-color: #4F5D75;
+}
+
+.btn.btn-secondary:hover {
+  background-color: #fc6f11;
+  border-color: #fc6f11;
+}
+
+.btn.btn-secondary{
+  background-color: #FCA311;
+  border-color: #FCA311;
+
 }
