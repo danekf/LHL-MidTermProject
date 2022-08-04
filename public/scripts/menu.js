@@ -1,5 +1,6 @@
 $(document).ready(function(){
-  $(".fa-angles-down").on("click", function(){
-    $("nav ul").toggleClass("open");
+  $(".fa-angles-down").on("click",
+  (event) => {
+    $("header nav ul").toggleClass("open");
   })
 });
