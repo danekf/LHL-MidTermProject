@@ -36,12 +36,64 @@ header {
     padding: 10px;
   }
 
+  button {
+    background-color: #ef8354;
+    color: #FFFFFF;
+    padding: 8px;
+    border: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 50px;
+  }
+
+  button:hover{
+    background-color: #4f5d75;
+  }
+
+  p {
+    padding: 10px;
+    color: #2d3142;
+    font-weight:200;
+  }
+
   nav {
     display: flex;
-    justify-content: space-between;
     background-color: #ef8354;
     color: #FFFFFF;
     padding: 10px;
+  }
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    flex-grow: 1;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  nav a {
+    text-decoration: none;
+    text-align: center;
+    color: #FFFFFF;
+    display: block;
+    padding: 10px;
+    flex-grow: 1;
+    flex-basis: 150px;
+
+  }
+
+  nav a:hover {
+    background-color:#4f5d75;
+  }
+
+  @media screen and (min-width: 768px) {
+    nav ul {
+      display: flex;
+      justify-content: space-between;
+    }
+    nav li {
+      flex-grow: 1;
+      flex-wrap: wrap;
+
+    }
   }
 
   .fa-angles-right {

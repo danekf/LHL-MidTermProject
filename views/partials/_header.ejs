@@ -28,52 +28,28 @@
     <% if(user){ %>
       <form action="/logout" method="POST">
         <p>Logged in as <%= user.username %></p>
-        <button>Logout</button>
+        <button>LOGOUT</button>
       </form>
 
-    <% } else{ %>
+    <% } else { %>
       <form action="/login" method="GET">
-        <button >Login</button>
+        <button>LOGIN</button>
       </form>
    <% } %>
-
-
   </span>
-
     <nav class="menu">
-
-            <!-- Menu Bar To Open -->
-    <div>
-        <h2> Menu </h2>
-        <!-- <form> -->
-          <i class="fa-solid fa-angles-right"></i>
-        <!-- </form> -->
-    </div>
-
-    <!-- Menu Bar To Close -->
-      <!-- <form>
-        <ul>
-        </ul>
-      </form> -->
-
-
-      <!-- Stretch: Search Bar -->
-      <div class="search-bar flex">
-        <div class="form-outline">
-          <input type="search" id="form1" class="form-control" placeholder="Search" aria-label="Search" />
-        </div>
-      </div>
-
-
-
-
-      <!-- ADD button -->
-
-
+      <ul>
+        <% if(user) { %>
+        <li><a href="home">Home</a></li>
+        <li><a href="home">My Favourites</a></li>
+        <li><a href="home/all">All Logins</a></li>
+        <li><a href="addNewLogin">Add a New Account</a></li>
+        <li><a href="editLogin">Edit a Login</a></li>
+        <% } else { %>
+        <li><a href="home">Home</a></li>
+        <% } %>
+      </ul>
     </nav>
-
-
 </header>
-
 
 
