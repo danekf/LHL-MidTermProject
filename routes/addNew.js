@@ -39,7 +39,6 @@ module.exports = (db) => {
             const queryValues = [`${user_id}`, `${login}`, `${password}`, `${URL}`, `${loginName}`];
             db.query(queryString, queryValues)
               .then(data => {
-                req.session.userId = data.rows[0];
                 return res.redirect('/');
               })
               .catch(err => {

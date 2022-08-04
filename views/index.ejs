@@ -31,6 +31,8 @@
     <ul>
       <% for (let login in data) { %>
       <li>
+        <i class ="fa-solid fa-pencil edit"></i>
+        <i class="fa-solid fa-star favourite"></i>
         <!-- Icon, first letter of service name --> <%= data[login].service_name[0] %>
         Site Name: <%= data[login].service_name %>
         Username: <%= data[login].saved_username %>

@@ -13,13 +13,16 @@ const router  = express.Router();
 module.exports = (db) => {
   //load home page, defaulting to favourited logins
   router.get("/", (req, res) => {
+    let user_id = ''
     if (!req.session.userId) {
-      const templateVars = {user: "", data: "", Title: "My Favourites"};
-      res.render("index", templateVars);
-    } else {
+      //demo user
+      user_id = 0;
+    }
+    else{
+      user_id = req.session.userId.id;
+    }
       let templateVars = {};
-      const user_id = req.session.userId.id;
-
+    console.log(`User id is : ${user_id}`);
       const queryString = `
       SELECT *
       FROM user_saved_logins
@@ -39,17 +42,18 @@ module.exports = (db) => {
           const templateVars = {user: req.session.userId, data: '', Title: "My Favourites"};
           res.render('index', templateVars);
         })
-    }
+
   });
 
   router.get("/all", (req, res) => {
-
     if (!req.session.userId) {
-      const templateVars = {user: "", data: "", Title: "All Saved Logins"};
-      res.render("index", templateVars);
-      } else {
+      res.redirect("/");
+    }
+
+    user_id = req.session.userId.id;
+
       let templateVars = {};
-      const user_id = req.session.userId.id;
+
 
       const queryString = `
       SELECT *
@@ -68,8 +72,8 @@ module.exports = (db) => {
           const templateVars = {user: req.session.userId, data: '', Title: "All Saved Logins"};
           res.render('index', templateVars);
         })
-      }
-    });
+  });
+
 
     return router;
 };
