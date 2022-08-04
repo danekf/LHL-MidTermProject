@@ -26,6 +26,7 @@ module.exports = (db) => {
       FROM user_saved_logins
       WHERE user_id = $1
       AND favourite = true
+      ORDER BY id
       ;`
 
       db.query(queryString, [`${user_id}`])
