@@ -5,10 +5,10 @@ INSERT INTO user_saved_logins (user_id, saved_username, saved_password, login_UR
 VALUES (2, 'kiraD', 'password', 'wwww.facebook.com', 'Facebook Yo', true);
 
 INSERT INTO user_saved_logins (user_id, saved_username, saved_password, login_URL, service_name, favourite)
-VALUES (2, 'kiraD', 'password', 'wwww.facebook2.com', 'FaceTwo', true);
+VALUES (2, 'kiraD', 'password', 'wwww.facebook2.com', 'FaceTwo', false);
 
 INSERT INTO user_saved_logins (user_id, saved_username, saved_password, login_URL, service_name, favourite)
-VALUES (2, 'kiraD', 'password', 'wwww.facebook3.com', 'FaceThree', true);
+VALUES (2, 'kiraD', 'password', 'wwww.facebook3.com', 'FaceThree', false);
 
 INSERT INTO user_saved_logins (user_id, saved_username, saved_password, login_URL, service_name, favourite)
 VALUES (2, 'kiraD', 'password', 'wwww.facebook4.com', 'FourBook', true);
