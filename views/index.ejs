@@ -36,12 +36,14 @@
       <li>
         <div id="feature-buttons">
           <% if (data[login].favourite) { %>
-            <form action = "/editlogin/favourite" method = "POST">
-              <button><i class="fa-solid fa-star favourite"></i></button>
+            <form action = "/editlogin/removeFavourite" method = "POST">
+              <button><i class="fa-solid fa-star removeFavourite"></i></button>
+              <input type="hidden" name="saved_login_id" value = <%= data[login].id %> >
             </form>
           <% } else { %>
             <form action = "/editlogin/favourite" method = "POST">
-              <button><i class="fa-regular fa-star"></i></button>
+              <button><i class="fa-regular fa-star favourite"></i></button>
+              <input type="hidden" name="saved_login_id" value = <%= data[login].id %> >
             </form>
           <% } %>
         </div>

@@ -52,6 +52,53 @@ module.exports = (db) => {
   });
 
   router.post("/favourite", (req, res) => {
+    const queryString = `
+    UPDATE user_saved_logins
+    SET favourite = true
+    WHERE user_id = $1 AND id = $2
+    `;
+
+    const {saved_login_id} = req.body;
+    const user_id = req.session.userId.id;
+
+    console.log(`Saved Login ID: ${saved_login_id}`);
+    console.log(`user ID: ${user_id}`);
+
+    const queryValues = [ `${user_id}`, `${saved_login_id}`];
+
+    db.query(queryString, queryValues)
+      .then(data => {
+        return res.redirect('/');
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
+
+  });
+
+  router.post("/removeFavourite", (req, res) =>{
+    const queryString = `
+    UPDATE user_saved_logins
+    SET favourite = false
+    WHERE user_id = $1 AND id = $2
+    `;
+
+    const {saved_login_id} = req.body;
+    const user_id = req.session.userId.id;
+
+    console.log(`Saved Login ID: ${saved_login_id}`);
+    console.log(`user ID: ${user_id}`);
+
+    const queryValues = [ `${user_id}`, `${saved_login_id}`];
+
+    db.query(queryString, queryValues)
+      .then(data => {
+        return res.redirect('/');
+      })
+      .catch(err => {
+        console.log(err);
+      })
 
   });
 
