@@ -21,18 +21,16 @@ module.exports = (db) => {
     else{
       user_id = req.session.userId.id;
     }
-      let templateVars = {};
-    console.log(`User id is : ${user_id}`);
       const queryString = `
       SELECT *
       FROM user_saved_logins
       WHERE user_id = $1
       AND favourite = true
+      ORDER BY id
       ;`
 
       db.query(queryString, [`${user_id}`])
         .then(data =>{
-          console.log(data.rows);
           const templateVars = {user: req.session.userId, data: data.rows, Title: "My Favourites"};
           res.render('index', templateVars);
 
@@ -59,6 +57,7 @@ module.exports = (db) => {
       SELECT *
       FROM user_saved_logins
       WHERE user_id = $1
+      ORDER BY id
       ;`
 
       db.query(queryString, [`${user_id}`])

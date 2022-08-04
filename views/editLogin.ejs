@@ -32,44 +32,54 @@
 <body>
   <%- include('partials/_header.ejs') %>
     <div class="add-new-login-page flex">
-      <h1>Add new Saved Login</h1>
-      <form id = "saveLogin" action = "/addNewLogin" method = "POST">
+      <h1>Edit <%- service_name %></h1>
 
-                <input
-                type="text"
-                placeholder="username/email"
-                id = "login"
-                name = "login"></input>
+      <form id = "saveLogin" action = "/editLogin/update" method = "POST">
+        <input
+        type="text"
+        placeholder="username/email"
+        id = "login"
+        name = "login"
+        value =<%- saved_username %> ></input>
+
+        <input
+        type="text"
+        placeholder="Log in URL (optional)"
+        id = "URL"
+        name = "URL"
+        value = <%- login_URL %> ></input>
+        <div class="password-input">
+
+        <input
+          type="text"
+          placeholder="password"
+          id="password-field"
+          name = "password"
+          value = <%- saved_password %> ></input>
+
+          <i id = "copyPasswordToClipboard" class="fa-solid fa-copy"></i>
+      </div>
+
+      <input type="text"
+      placeholder="Name this login"
+      id = "loginName"
+      name = "loginName"
+      value = <%- service_name %> ></input>
+
+      <!-- target id for update-->
+      <input type="hidden" name="saved_login_id" value = <%- saved_login_id %> </input>
+
+      <button type = "submit" > Save Login Info </button>
+      <div id = "alert"></div>
+
+    </form>
 
 
-                <input
-                type="text"
-                placeholder="Log in URL (optional)"
-                id = "URL"
-                name = "URL"></input>
-              <div class="password-input">
 
-                <input
-                  type="text"
-                  placeholder="password"
-                  id="password-field"
-                  name = "password"></input>
 
-                  <i id = "copyPasswordToClipboard" class="fa-solid fa-copy"></i>
-              </div>
+    <button data-bs-toggle="modal" data-bs-target="#passwordModal">Use our SECURE PASSWORD Generator!</button>
 
-              <input type="text"
-              placeholder="Name this login"
-              id = "loginName"
-              name = "loginName"></input>
-
-              <button type = "submit" > Save Login Info </button>
-              <div id = "alert"></div>
-
-            </form>
-            <button data-bs-toggle="modal" data-bs-target="#passwordModal">Use our SECURE PASSWORD Generator!</button>
-
-            </div>
+    </div>
 
 
 
