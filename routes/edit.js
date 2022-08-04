@@ -11,7 +11,7 @@ const bcrypt = require("bcryptjs");
 
 
 
-module.exports = () => {
+module.exports = (db) => {
 
   //direct user to edit page, using data from form clicked
   router.post("/", (req, res) => {
@@ -34,12 +34,11 @@ module.exports = () => {
 
     const {login, URL, loginName, password ,saved_login_id} = req.body;
 
-    const user_id = req.session.userId.user_id;
-
+    const user_id = req.session.userId.id;
 
     const queryString = `
             UPDATE user_saved_logins
-            SET saved_username = $1, saved_password = $2, login_url = #3, service_name = $4
+            SET saved_username = $1, saved_password = $2, login_url = $3, service_name = $4
             WHERE user_id = $5 AND id = $6
             `;
             const queryValues = [`${login}`, `${password}`, `${URL}`, `${loginName}`, `${user_id}`, `${saved_login_id}`];
@@ -50,9 +49,6 @@ module.exports = () => {
               .catch(err => {
                 console.log(err);
               });
-
-
-    res.redirect("/");
   });
 
   return router;
