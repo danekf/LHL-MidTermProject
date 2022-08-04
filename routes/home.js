@@ -16,7 +16,7 @@ module.exports = (db) => {
     let user_id = ''
     if (!req.session.userId) {
       //demo user
-      user_id = 0;
+      user_id = 1;
     }
     else{
       user_id = req.session.userId.id;
