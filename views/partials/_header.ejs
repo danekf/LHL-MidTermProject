@@ -24,6 +24,7 @@
 
       <!-- jQuery-->
       <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="/scripts/menu.js"></script>
 
         <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -54,49 +55,28 @@
         <button class="submit btn btn-primary">Logout</button>
       </form>
 
-    <% } else{ %>
+    <% } else { %>
       <form action="/login" method="GET">
         <button class="submit btn btn-primary">Login</button>
       </form>
    <% } %>
-
-
   </span>
+  <nav class="menu">
+      <i id = "openMenu" class="fa-solid fa-angles-down"></i>
+      <ul class="menu-bar">
+        <% if(user) { %>
 
-    <nav class="menu">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/home">My Favourites</a></li>
+        <li><a href="/home/all">All Logins</a></li>
+        <li><a href="/addNewLogin">Add a New Account</a></li>
+        <% } else { %>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/register">Register</a></li>
 
-            <!-- Menu Bar To Open -->
-    <div>
-        <h2> Menu </h2>
-        <!-- <form> -->
-          <i class="fa-solid fa-angles-right"></i>
-        <!-- </form> -->
-    </div>
-
-    <!-- Menu Bar To Close -->
-      <!-- <form>
-        <ul>
-        </ul>
-      </form> -->
-
-
-      <!-- Stretch: Search Bar -->
-      <div class="search-bar flex">
-        <div class="form-outline">
-          <input type="search" id="form1" class="form-control" placeholder="Search" aria-label="Search" />
-        </div>
-      </div>
-
-
-
-
-      <!-- ADD button -->
-
-
+        <% } %>
+      </ul>
     </nav>
-
-
 </header>
-
 
 
