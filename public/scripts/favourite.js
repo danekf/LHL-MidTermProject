@@ -1,9 +1,10 @@
 
-// $(document).ready(() => {
+$(document).ready(() => {
 
-//   $('#favourite').on('click',
-//   (event) => {
-//     event.preventDefault();
-//     alert("Favourite button pressed");
-//   })
-// });
+  $('.favourite').on('click',
+  (event) => {
+    // event.preventDefault();
+    // let targetLoginId = this.parent('li').find('service_name');
+    alert("Marking as favourite");
+  })
+});

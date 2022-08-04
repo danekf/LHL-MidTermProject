@@ -51,5 +51,9 @@ module.exports = (db) => {
               });
   });
 
+  router.post("/favourite", (req, res) => {
+
+  });
+
   return router;
 };

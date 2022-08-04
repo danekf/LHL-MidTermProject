@@ -34,8 +34,20 @@
     <ul>
       <% for (let login in data) { %>
       <li>
-        <form action = "editLogin" method = "POST">
-          <button><i class="fa-solid fa-star favourite"></i></button>
+        <div id="feature-buttons">
+          <% if (data[login].favourite) { %>
+            <form action = "/editlogin/favourite" method = "POST">
+              <button><i class="fa-solid fa-star favourite"></i></button>
+            </form>
+          <% } else { %>
+            <form action = "/editlogin/favourite" method = "POST">
+              <button><i class="fa-regular fa-star"></i></button>
+            </form>
+          <% } %>
+        </div>
+
+        <form action = "/editLogin" method = "POST">
+          <button><i class ="fa-solid fa-pencil edit"></i></button>
           <div ><%= data[login].service_name[0] %></div>
           <div ><%= data[login].service_name %></div>
           <input type="hidden" name="service_name" value = <%= data[login].service_name %> >
@@ -46,7 +58,6 @@
           <div ><%= data[login].login_URL %></div>
           <input type="hidden" name="login_URL" value = <%= data[login].login_URL %> >
           <input type="hidden" name="saved_login_id" value = <%= data[login].id %> >
-          <button><i class ="fa-solid fa-pencil edit"></i></button>
       </form>
       </li>
       <br>
