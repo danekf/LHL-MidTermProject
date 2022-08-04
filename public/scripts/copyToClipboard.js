@@ -1,10 +1,21 @@
 
 $(document).ready(() => {
 
-  $('#copyPasswordToClipboard').on('click',
+  $('.username').on('click',
   (event) => {
-    let password = $("#password-field");
+    let password = $(event.target).dosomething;
     $(password).select();
     document.execCommand("copy");
   })
+
+  $('.password').on('click',
+  (event) => {
+    let password = $(event.target).dosomething;
+    $(password).select();
+    document.execCommand("copy");
+  })
+
+
 });
+
+
