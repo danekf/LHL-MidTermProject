@@ -19,6 +19,7 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/edit.js"></script>
 
 
     <title>Home Page</title>
@@ -27,17 +28,26 @@
     <body class="favourited-logins">
     <%- include('partials/_header.ejs') %>
 
+    </form>
+
     <h1> <%- Title %> </h1>
     <ul>
       <% for (let login in data) { %>
       <li>
-        <i class ="fa-solid fa-pencil edit"></i>
-        <i class="fa-solid fa-star favourite"></i>
-        <!-- Icon, first letter of service name --> <%= data[login].service_name[0] %>
-        Site Name: <%= data[login].service_name %>
-        Username: <%= data[login].saved_username %>
-        Password: <%= data[login].saved_password %>
-        Login URL: <%= data[login].login_URL %>
+        <form action = "editLogin" method = "POST">
+          <button><i class="fa-solid fa-star favourite"></i></button>
+          <div ><%= data[login].service_name[0] %></div>
+          <div ><%= data[login].service_name %></div>
+          <input type="hidden" name="service_name" value = <%= data[login].service_name %> >
+          <div ><%= data[login].saved_username %></div>
+          <input type="hidden" name="saved_username" value = <%= data[login].saved_username %> >
+          <div ><%= data[login].saved_password %></div>
+          <input type="hidden" name="saved_password" value = <%= data[login].saved_password %> >
+          <div ><%= data[login].login_URL %></div>
+          <input type="hidden" name="login_URL" value = <%= data[login].login_URL %> >
+          <input type="hidden" name="saved_login_id" value = <%= data[login].id %> >
+          <button><i class ="fa-solid fa-pencil edit"></i></button>
+      </form>
       </li>
       <br>
     <% } %>
