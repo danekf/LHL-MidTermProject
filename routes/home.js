@@ -57,6 +57,7 @@ module.exports = (db) => {
       SELECT *
       FROM user_saved_logins
       WHERE user_id = $1
+      ORDER BY id
       ;`
 
       db.query(queryString, [`${user_id}`])
