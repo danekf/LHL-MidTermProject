@@ -28,21 +28,33 @@
     <%- include('partials/_header.ejs') %>
 
     <h1> <%- Title %> </h1>
-    <ul>
-      <% for (let login in data) { %>
-      <li>
-        <i class ="fa-solid fa-pencil edit"></i>
-        <i class="fa-solid fa-star favourite"></i>
-        <!-- Icon, first letter of service name --> <%= data[login].service_name[0] %>
-        Site Name: <%= data[login].service_name %>
-        Username: <%= data[login].saved_username %>
-        Password: <%= data[login].saved_password %>
-        Login URL: <%= data[login].login_URL %>
-      </li>
-      <br>
-    <% } %>
-    </ul>
 
+    <div class="container">
+      <!-- <% let counter = 1; %> -->
+      <div class="row">
+
+      <% for (let login in data) { %>
+        <!-- <% if (counter%2 === 1) {%> -->
+
+        <!-- <% } %> -->
+
+            <div class="login-block col-6 col-sm-4">
+              <i class ="fa-solid fa-pencil edit"></i>
+              <i class="fa-solid fa-star favourite"></i>
+              <!-- Icon, first letter of service name --> <%= data[login].service_name[0] %>
+              Site Name: <%= data[login].service_name %>
+              Username: <%= data[login].saved_username %>
+              Password: <%= data[login].saved_password %>
+              Login URL: <%= data[login].login_URL %>
+            </div>
+            <!-- <% counter ++; %> -->
+          <!-- <% if (counter%2 === 1) {%> -->
+
+          <!-- <% } %> -->
+    <% } %>
+        </div>
+
+    </div>
     <% if (user) { %>
       <form action = "/addNewLogin", method = "GET">
         <button class="add-new-login">Add a new account!</button>
