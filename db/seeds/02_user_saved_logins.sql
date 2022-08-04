@@ -8,7 +8,7 @@ INSERT INTO user_saved_logins (user_id, saved_username, saved_password, service_
 VALUES (1, 'alice@wonderland.ca', 'password', 'Twitter', true);
 
 INSERT INTO user_saved_logins (user_id, saved_username, saved_password, service_name, favourite)
-VALUES (1, 'alice@wonderland.ca', 'password', 'Linkedin', true);
+VALUES (1, 'alice@wonderland.ca', 'bigTire', 'Canadian Tire', true);
 
 INSERT INTO user_saved_logins (user_id, saved_username, saved_password, service_name, favourite)
 VALUES (1, 'alice@wonderland.ca', 'password', 'Instagram', true);
