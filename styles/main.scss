@@ -91,7 +91,7 @@
       display: block}
   }
 
-  #icon-info {
+  .icon-info {
     border-style: solid;
     border-color: #4F5D75;
     border-width: 3px;
@@ -126,6 +126,14 @@
     i {
       display: block}
   }
+}
+
+.password {
+  display: none;
+}
+.password.open {
+  display: block;
+  cursor: pointer;
 }
 
 button {

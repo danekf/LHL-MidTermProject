@@ -19,6 +19,8 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/togglePassword.js"></script>
+
 
 
     <title>Home Page</title>
@@ -34,10 +36,8 @@
       <div class="row">
 
       <% for (let login in data) { %>
-
-
             <div class="login-block col-6 col-md-4">
-              <div id="icon-info">
+              <div class= "icon-info">
                 <div id="show-icon">
                 <!-- Icon, first letter of service name --> <%= data[login].service_name[0].toLowerCase() %>
                 </div>
@@ -45,6 +45,7 @@
                   <% if (data[login].favourite) { %>
                     <form action = "/editlogin/removeFavourite" method = "POST">
                      <button><i class="fa-solid fa-star favourites removeFavourite"></i></button>
+                     <input type="hidden" name="saved_login_id" value = <%= data[login].id %> >
                     </form>
                   <% } else { %>
                     <form action = "/editlogin/favourite" method = "POST">
@@ -54,21 +55,19 @@
                   <% } %>
                 </div>
 
-                <form action = "/editLogin" method = "POST">
+                <form class = "edit" action = "/editLogin" method = "POST">
                   <button><i id="edit-icon" class ="fa-solid fa-pencil edit"></i></button>
-                </form>
-
-                  <div >Site Name: <%= data[login].service_name %></div>
+                  <div>Site Name: <%= data[login].service_name %></div>
                   <input type="hidden" name="service_name" value = <%= data[login].service_name %> >
                   <div >Username: <%= data[login].saved_username %></div>
                   <input type="hidden" name="saved_username" value = <%= data[login].saved_username %> >
-                  <!-- DON'T WANT THIS INFO ON THIS PAGE will need on expanded icon
-                  <div><%= data[login].saved_password %></div>
+                <!-- DON'T WANT THIS INFO ON THIS PAGE will need on expanded icon -->
+                  <div class="password"><%= data[login].saved_password %></div>
                   <input type="hidden" name="saved_password" value = <%= data[login].saved_password %> >
-                  <div ><%= data[login].login_URL %></div>
-                  <input type="hidden" name="login_URL" value = <%= data[login].login_URL %> > -->
+                  <div >Login URL: <%= data[login].login_URL %></div>
+                  <input type="hidden" name="login_URL" value = <%= data[login].login_URL %> >
                   <input type="hidden" name="saved_login_id" value = <%= data[login].id %> >
-
+                </form>
               </div>
             </div>
 
