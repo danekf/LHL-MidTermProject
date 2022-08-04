@@ -58,6 +58,7 @@ module.exports = (db) => {
     WHERE user_id = $1 AND id = $2
     `;
 
+    const previousPage = req.originalUrl;
     const {saved_login_id} = req.body;
     const user_id = req.session.userId.id;
 
@@ -68,7 +69,7 @@ module.exports = (db) => {
 
     db.query(queryString, queryValues)
       .then(data => {
-        return res.redirect('/');
+        res.redirect('back');
       })
       .catch(err => {
         console.log(err);
@@ -94,7 +95,7 @@ module.exports = (db) => {
 
     db.query(queryString, queryValues)
       .then(data => {
-        return res.redirect('/');
+        res.redirect('back');
       })
       .catch(err => {
         console.log(err);
