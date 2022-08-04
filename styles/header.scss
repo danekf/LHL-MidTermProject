@@ -16,6 +16,7 @@ header {
     color: #2d3142;
     flex-direction: row;
     align-items: center;
+    width: 100%;
   }
 
   h1 {
@@ -77,6 +78,7 @@ header {
     padding: 10px;
     flex-grow: 1;
     flex-basis: 150px;
+    box-sizing: border-box;
 
   }
 
@@ -84,22 +86,41 @@ header {
     background-color:#4f5d75;
   }
 
-  @media screen and (min-width: 768px) {
-    nav ul {
+  // Tablet View: if we want to do a tablet view, which seems unecessary
+  // @media screen and (max-width: 768px) {
+  // }
+
+  // Mobile View:
+  @media screen and (max-width: 440px) {
+    span {
       display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    button {
       justify-content: space-between;
     }
-    nav li {
-      flex-grow: 1;
-      flex-wrap: wrap;
 
+    .top-bar {
+      justify-content: center;
+      background-color: #ef8354;
+      color: white;
     }
-  }
 
-  .fa-angles-right {
+    .fa-star {
+      color: #FFFFFF;
+    }
 
-    color: #FFFFFF;
-    font-size: x-large;
+    .fa-star:hover {
+      color: #2d3142;
+    }
+
   }
 
 }
