@@ -52,12 +52,18 @@
     margin: 5em;
   }
 
-  .fa-star {
-    color: #4f5d75;
+  .favourites {
+    color: #fca311;
     padding: 10px;
   }
 
-  .fa-star:hover {
+  .fa-regular {
+      color: #4f5d75;
+      padding: 10px;
+    }
+
+
+  .fa-regular:hover {
     color: #fca311;
   }
 

@@ -44,11 +44,16 @@
                 <!-- Icon, first letter of service name --> <%= data[login].service_name[0].toLowerCase() %>
                 </div>
                 <div id="feature-buttons">
-                  <i class="fa-solid fa-star favourite"></i>
+                  <% if (data[login].favourite) { %>
+                    <i class="fa-solid fa-star favourites"></i>
+                  <% } else { %>
+                    <i class="fa-regular fa-star"></i>
+                  <% } %>
                   <i class ="fa-solid fa-pencil edit"></i>
                 </div>
                 Site Name: <%= data[login].service_name %> <br>
                 Username: <%= data[login].saved_username %>
+                <!-- Favourited: <%= data[login].favourite %> -->
                 <!-- Password: <%= data[login].saved_password %>
                 Login URL: <%= data[login].login_URL %> -->
               </div>
