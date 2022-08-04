@@ -13,7 +13,11 @@ const bcrypt = require("bcryptjs");
 
 module.exports = () => {
   router.get("/", (req, res) => {
-    res.render("editLogin");
+    if (req.session.userID) {
+      res.redirect("/login"); //redirect user to login
+    }
+    const templateVars={user:req.session.userID};
+    res.render("editLogin", templateVars);
   });
 
 

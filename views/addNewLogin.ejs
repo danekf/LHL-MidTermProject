@@ -22,6 +22,7 @@
   <!-- Load user scripts -->
   <script type="text/javascript" src="/scripts/addNewLogin.js"></script>
   <script type="text/javascript" src="/scripts/generatePassword.js"></script>
+  <script type="text/javascript" src="/scripts/copyToClipboard.js"></script>
 
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -40,6 +41,7 @@
                 id = "login"
                 name = "login"></input>
 
+
                 <input
                 type="text"
                 placeholder="Log in URL (optional)"
@@ -53,7 +55,7 @@
                   id="password-field"
                   name = "password"></input>
 
-                <i class="fa-solid fa-copy"></i>
+                  <i id = "copyPasswordToClipboard" class="fa-solid fa-copy"></i>
               </div>
 
               <input type="text"
@@ -129,7 +131,7 @@
               </div>
             </div>
 
-            <button class="submit btn btn-primary" id="passwordBtn" type="submit">Generate
+            <button data-bs-dismiss="modal" class="submit btn btn-primary" id="passwordBtn" type="submit">Generate
               Password</button>
         </div>
         </form>
