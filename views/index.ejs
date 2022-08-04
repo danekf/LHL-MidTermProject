@@ -38,14 +38,21 @@
 
         <!-- <% } %> -->
 
-            <div class="login-block col-6 col-sm-4">
-              <i class ="fa-solid fa-pencil edit"></i>
-              <i class="fa-solid fa-star favourite"></i>
-              <!-- Icon, first letter of service name --> <%= data[login].service_name[0] %>
-              Site Name: <%= data[login].service_name %>
-              Username: <%= data[login].saved_username %>
-              Password: <%= data[login].saved_password %>
-              Login URL: <%= data[login].login_URL %>
+            <div class="login-block col-6 col-md-4">
+              <div id="icon-info">
+                <div id="show-icon">
+                <!-- Icon, first letter of service name --> <%= data[login].service_name[0].toLowerCase() %>
+                </div>
+                <div id="feature-buttons">
+                  <i class="fa-solid fa-star favourite"></i>
+                  <i class ="fa-solid fa-pencil edit"></i>
+                </div>
+                Site Name: <%= data[login].service_name %> <br>
+                Username: <%= data[login].saved_username %>
+                <!-- Password: <%= data[login].saved_password %>
+                Login URL: <%= data[login].login_URL %> -->
+              </div>
+
             </div>
             <!-- <% counter ++; %> -->
           <!-- <% if (counter%2 === 1) {%> -->
@@ -54,10 +61,10 @@
     <% } %>
         </div>
 
-    </div>
+    </div> <br>
     <% if (user) { %>
       <form action = "/addNewLogin", method = "GET">
-        <button class="add-new-login">Add a new account!</button>
+        <button class="add-new-login btn btn-primary">Add a new account!</button>
       </form>
     <% } else { %>
       <form action="/register" method="GET">

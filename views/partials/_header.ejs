@@ -50,13 +50,13 @@
     <!--Show login/username depending on if user is logged  or not-->
     <% if(user){ %>
       <form action="/logout" method="POST">
-        <p>Logged in as <%= user.username %></p>
-        <button>Logout</button>
+        <p class="logged-in-as">Logged in as <%= user.username %></p>
+        <button class="submit btn btn-primary">Logout</button>
       </form>
 
     <% } else{ %>
       <form action="/login" method="GET">
-        <button >Login</button>
+        <button class="submit btn btn-primary">Login</button>
       </form>
    <% } %>
 

@@ -51,6 +51,67 @@
   .signup {
     margin: 5em;
   }
+
+  .fa-star {
+    color: #4f5d75;
+    padding: 10px;
+  }
+
+  .fa-star:hover {
+    color: #fca311;
+  }
+
+  .fa-pencil {
+    color: #4f5d75;
+    padding: 10px;
+  }
+
+  .fa-pencil:hover {
+    color: #fca311;
+  }
+
+  .login-block {
+    display: flex;
+
+  }
+
+  #feature-buttons {
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    right: 0;
+    i {
+      display: block}
+  }
+
+  #icon-info {
+    border-style: solid;
+    border-color: #4F5D75;
+    border-width: 3px;
+    border-radius: 2px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    margin-bottom: 2em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #show-icon {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    font-size: 50px;
+    color: #fff;
+    background:#4F5D75;
+    margin: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .btn.btn-primary, .btn.btn-primary:hover {
