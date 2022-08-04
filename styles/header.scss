@@ -86,12 +86,17 @@ header {
     background-color:#4f5d75;
   }
 
+  .fa-angles-down {
+    height: 0px;
+    color: #ef8354;
+  }
+
   // Tablet View: if we want to do a tablet view, which seems unecessary
   // @media screen and (max-width: 768px) {
   // }
 
   // Mobile View:
-  @media screen and (max-width: 440px) {
+  @media screen and (max-width: 700px) {
     span {
       display: flex;
       flex-direction: column;
@@ -121,6 +126,46 @@ header {
       color: #2d3142;
     }
 
+    // nav {
+    //   display: flex;
+    //   flex-direction: column;
+    // }
+    
+    .fa-angles-down {
+      display: block;
+      justify-content: center;
+      height: 40px;
+      width: 100%;
+      background: no-repeat 98% center;
+      cursor: pointer;
+      color: #FFFFFF;
+    }
+
+    .fa-angles-down:hover{
+      color: #2d3142;
+    }
+
+    nav ul {
+      overflow: hidden;
+      height: 0;
+    }
+
+    nav ul li {
+      float: none;
+      width: 100%;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: #fff;
+      padding: 10px;
+      display: block;
+      margin: 0;
+    }
+
+  }
+  .menu-bar.open {
+    height: auto;
   }
 
 }
