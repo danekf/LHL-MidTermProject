@@ -61,17 +61,17 @@
 
                 <form class = "edit" action = "/editLogin" method = "POST">
                   <button><i id="edit-icon" class ="fa-solid fa-pencil edit"></i></button>
-                  <div>Site Name: <%= data[login].service_name %></div>
+                  <div><b>Site Name:</b> <%= data[login].service_name %></div>
                   <input type="hidden" name="service_name" value = <%= data[login].service_name %> >
-                  <div class = "username">Username: <%= data[login].saved_username %> <i class="fa-solid fa-copy"></i>
+                  <div class = "username"><b>Username:</b> <%= data[login].saved_username %> <i class="fa-solid fa-copy"></i>
                   <input type="hidden" name="saved_username" value = <%= data[login].saved_username %> >
                 </div>
                 <!-- DON'T WANT THIS INFO ON THIS PAGE will need on expanded icon -->
-                  <div class="password" >Password: <%= data[login].saved_password %>
+                  <div class="password"><b>Password:</b> <%= data[login].saved_password %>
                     <i class="fa-solid fa-copy"></i>
                     <input type="hidden" name="saved_password" value = <%= data[login].saved_password %> >
                 </div>
-                  <div >Login URL: <%= data[login].login_URL %></div>
+                  <div >Login URL: <%= data[login].login_url %></div>
                   <input type="hidden" name="login_URL" value = <%= data[login].login_URL %> >
                   <input type="hidden" name="saved_login_id" value = <%= data[login].id %> >
                 </form>

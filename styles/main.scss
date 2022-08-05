@@ -1,9 +1,12 @@
 .favourited-logins {
   display: flex;
   flex-direction: column;
+  font-family: 'Thasadith';
 
   h1 {
     align-self: center;
+    padding: 25px;
+    font-weight: bolder;
   }
 
   ul {
@@ -76,6 +79,15 @@
     color: #fca311;
   }
 
+  .fa-copy {
+    color: #4f5d75;
+    padding: 10px;
+  }
+
+  .fa-copy:hover {
+    color: #fca311;
+  }
+
   .login-block {
     display: flex;
 
@@ -119,6 +131,11 @@
     justify-content: center;
   }
 
+  .edit {
+    display: flex;
+    flex-direction: column;
+  }
+
   #edit-icon {
     position: absolute;
     top: 30px;
@@ -126,6 +143,8 @@
     i {
       display: block}
   }
+
+
 }
 
 .password {

@@ -21,6 +21,7 @@
   <!-- FONT AWESOME REF-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
       <!-- jQuery-->
       <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
       <script type="text/javascript" src="/scripts/menu.js"></script>
@@ -37,7 +38,7 @@
     <div class="top-bar">
       <!-- Favourites Icon-->
       <a href = "/" >
-        <i class="fa-solid fa-star"></i>
+        <img src="/images/logo.png" width="60" height="60">
       </a>
 
       <!-- App CSS -->
@@ -67,7 +68,7 @@
         <li><a href="/home">My Favourites</a></li>
         <li><a href="/home/all">All Logins</a></li>
         <li><a href="/addNewLogin">Add a New Account</a></li>
-        <li><form action = "/home/search" method = "POST"><input name = "search"  placeholder="Search Logins" class="search-login"><button></button></form></li>
+        <li><form action = "/home/search" method = "POST"><input name = "search" id="search-bar" placeholder="Search Logins"><button id="nav-search-bar">Search</button></form></li>
         <% } else { %>
         <li><a href="/home">Home</a></li>
         <li><a href="/register">Register</a></li>
