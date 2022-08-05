@@ -6,7 +6,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <!-- ADD LOGO HERE -->
   <a href="https://github.com/danekf/LHL-MidtermProject/blob/feature/readme/images/Signum%20S.png">
     <img src="images/Signum S.png" alt="Logo" width="80" height="80">
   </a>
@@ -53,8 +52,7 @@
 
 <!-- ABOUT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![SignumScreenshot][product-screenshot]](https://example.com)
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
