@@ -14,11 +14,15 @@ module.exports = (db) => {
   //load home page, defaulting to favourited logins
   router.get("/", (req, res) => {
     let user_id = '';
+    let title = '';
     if (!req.session.userId) {
       //demo user
       user_id = 1;
+      title = 'My Favourites (DEMO)';
+
     } else {
       user_id = req.session.userId.id;
+      title = 'My Favourites'
     }
     const queryString = `
       SELECT *
@@ -30,7 +34,7 @@ module.exports = (db) => {
 
     db.query(queryString, [`${user_id}`])
       .then(data =>{
-        const templateVars = {user: req.session.userId, data: data.rows, Title: "My Favourites"};
+        const templateVars = {user: req.session.userId, data: data.rows, Title: title};
         res.render('index', templateVars);
 
       })
