@@ -180,6 +180,7 @@ See the [open issues](https://github.com/danekf/Signum-App/issues) for a full li
     <img src="images/Register.png" alt="Logo">
   </a>
 <br>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Password Generator
   <a>
