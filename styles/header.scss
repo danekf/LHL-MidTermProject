@@ -61,7 +61,6 @@ header {
     display: flex;
     background-color: #ef8354;
     color: #FFFFFF;
-    padding: 10px;
   }
   nav ul {
     list-style-type: none;
@@ -126,10 +125,6 @@ header {
       color: #2d3142;
     }
 
-    // nav {
-    //   display: flex;
-    //   flex-direction: column;
-    // }
 
     .fa-angles-down {
       display: block;
@@ -173,12 +168,42 @@ header {
   }
 
   .logged-in-as {
-    color: #bfc0c0
-  }
-
-  .search-bar {
+    color: #4F5D75;
     align-self: center;
-
   }
+
+
+
+
 }
 
+.menu-bar{
+  font-family: 'Bebas Neue';
+  font-size: x-large;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.menu-bar a:hover {
+    color: white;
+    background-color: #B55C37;
+
+}
+
+#search-bar {
+  height: 40px;
+  align-self: center;
+  padding-left: 10px;
+}
+
+#nav-search-bar {
+  align-self: center;
+  border: transparent;
+  height: 100%;
+  margin: 0;
+}
+
+#nav-search-bar:hover {
+  background-color: #B55C37;
+}
