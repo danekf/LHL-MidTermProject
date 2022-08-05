@@ -79,6 +79,10 @@ This project aims to have its developpers hone their frontend, and backend skill
 
 A user is able to register, create new saved logins and set them as favourites for easy access. It has dynamic viewport elements, so that mobile and desktop have optimized views of data.
 
+The app also uses a modal drop down menu to automatically generate passwords for its users, and gives them different criteria with which to do so.
+
+The app uses jquery event targetting to show/hide passwords for individual logins, as well as copying that data to clipboard.
+
 Passwords are hidden by default but the login area can be clicked to view it.
 
 
@@ -157,16 +161,45 @@ Real usernames and passwords should not be stored or used commercially at this p
 
 ## Roadmap
 
-- [ ] Encrypt saved login info
-- [ ] Add organisations logic (Org can pass login info to user groups)
+- [ ] Add instructions for setting up Postgres database to README File.
+- [ ] Encrypt saved login info. This is the next MAJOR step for the app.
+- [ ] Add organisations logic (Org can manage saved logins, and grant/revoke access to specific users/groups)
 - [ ] Add 2FA 
 - [ ] Add Dynamic elements when selecting a login
+
 
 See the [open issues](https://github.com/danekf/Signum-App/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## App images
+
+### Registration
+  <a>
+    <img src="images/Register.png" alt="Logo">
+  </a>
+
+### Password Generator
+  <a>
+    <img src="images/Password.png" alt="Logo">
+  </a>
+<br>
+<br>
+
+### Add New Login
+  <a>
+    <img src="images/addNew.png" alt="Logo">
+  </a>
+<br>
+<br>
+
+### Basic Search
+  <a>
+    <img src="images/Search.png" alt="Logo">
+  </a>
+  <br>
+<br>
+
 
 
 
