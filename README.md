@@ -57,12 +57,14 @@
 
 Signum is a web app that serves as a password manager for its end users.
 
-Using a variety of dependecies such as:
+### Built With
 <ul>
   <li>bcrypt, for encryption</li>
   <li>chalk, for a user pleasing server console</li>
   <li>cookie session, for storing session cookies</li>
   <li>ejs, as a view engine</li>
+  <li>bootstrap, for styling</li>
+  <li>jquery, for dynamic events </li>
 and many more...
 </ul>
 <br>
@@ -73,12 +75,17 @@ A user is able to register, create new saved logins and set them as favourites f
 
 Passwords are hidden by default but the login area can be clicked to view it.
 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Getting Started
 
-
-
+1. Fork this repo
+2. Clone your forked repo
+```sh
+   git clone https://github.com/your_username_/LHL-MidtermProject
+   ```
 
 
 
