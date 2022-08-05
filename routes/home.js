@@ -75,7 +75,33 @@ module.exports = (db) => {
 
     router.post("/search", (req, res) => {
       const {search} = req.body;
-      console.log(`Search is : ${search}`);
+
+      user_id = req.session.userId.id;
+
+      const queryString = `
+      SELECT *
+      FROM user_saved_logins
+      WHERE user_id = $1
+      AND LOWER (service_name) LIKE  LOWER ($2)
+      ORDER BY id
+      ;`
+
+      const queryVars = [`${user_id}`,`%${search}%`];
+
+      db.query(queryString, queryVars)
+        .then(data => {
+          if (!data.rows[0]){
+            const templateVars = {user: req.session.userId, data: data.rows, Title: "No results found for search"};
+          return res.render('index', templateVars);
+          }
+
+          const templateVars = {user: req.session.userId, data: data.rows, Title: "Search results"};
+          return res.render('index', templateVars);
+        })
+        .catch(err =>{
+          console.log(err)
+        });
+
 
     });
 
