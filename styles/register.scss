@@ -1,6 +1,10 @@
 .registration-page {
   font-family: "Thasadith";
 }
+.registration-form {
+  display: flex;
+  flex-direction: column;
+}
 
 div {
   display: flex;
@@ -24,7 +28,7 @@ div {
   .password-input {
     display: flex;
     flex-direction: row;
-    padding-left: 50px; //to keep alligned with centered boxes
+    padding-left: 56px; //to keep alligned with centered boxes
   }
 
   .fa-copy {

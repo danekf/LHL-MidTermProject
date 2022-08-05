@@ -22,6 +22,7 @@ module.exports = (db) => {
 
   // Register a new user:
   router.post("/", (req, res) => {
+    console.log("body: ", req.body);
     // Create a new user with the login information below:
     const email = req.body.email;
     const username = req.body.username;
@@ -30,9 +31,11 @@ module.exports = (db) => {
     const lastName = req.body.lastName;
     //const hashedPassword = bcrypt.hashSync(password, 10); // Password encryption
 
+console.log("Registering user...")
     // if (username && email) {
       db.query(`SELECT * FROM users WHERE email = $1 OR username = $2`, [email, username])
         .then(data => {
+          console.log('data:', data);
           let message = '';
           //if found report that to user
           if (!data.rows[0]) {
@@ -58,6 +61,7 @@ module.exports = (db) => {
           }
           //if not found go ahead and register
           else {
+            console.log("User already registered.");
             message += "Email or username already registered!";
             const templateVars = {user: '', message: message};
             res.render("register", templateVars); //re render the page with the new messages in place

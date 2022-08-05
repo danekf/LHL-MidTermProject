@@ -16,7 +16,6 @@
     type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/register.js"></script>
     <script type="text/javascript" src="/scripts/copyToClipboard.js"></script>
       <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,37 +29,21 @@
   <div class="registration-page flex">
     <h1>Register</h1>
     <h2>Sign up today to save passwords securely</h2>
-    <form action="/register" method="POST" class="registration-form">
-      <span></span>
 
-      <form>
-        <input type = "email" name="email" placeholder="Email" class="email"></input>
-      </form>
-
-      <form>
-        <input type = "username" name="username" placeholder="Username" class="username"></input>
-      </form>
-
+    <form action="/register" method="POST" class="registration-form" >
+      <input type = "email" name="email" placeholder="Email" class="email"></input>
+      <input type = "username" name="username" placeholder="Username" class="input_username"></input>
       <div class="password-input">
-        <form>
           <input type="text" name="password" class="email" placeholder="password" id="password-field"></input>
-        </form>
-        <i id = "copyPasswordTo" class="fa-solid fa-copy"></i>
-      </div>
-
-      <button class="submit btn btn-secondary" data-bs-toggle="modal" data-bs-target="#passwordModal">Or user our SECURE PASSWORD CREATOR</button>
-      <!-- AJAX POPUP OF _generatePassword Partial-->
-
-      <form>
-        <input type = "text" name="firstName" placeholder="First Name" class="firstName"></input>
-      </form>
-
-      <form>
-        <input type = "text" name="lastName" placeholder="Last Name" class="lastName"></input>
-      </form>
-
-      <button type="submit" class="submit btn btn-primary"> Sign Up </button>
+          <i id = "copyPasswordTo" class="fa-solid fa-copy"></i>
+        </div>
+      <button class="submit btn btn-secondary" data-bs-toggle="modal" data-bs-target="#passwordModal">Use our SECURE PASSWORD Generator!</button>
+      <input type = "text" name="firstName" placeholder="First Name" class="firstName"></input>
+      <input type = "text" name="lastName" placeholder="Last Name" class="lastName"></input>
+      <button class="submit btn btn-primary" type = "submit"> Sign Up </button>
     </form>
+
+    <!-- AJAX POPUP OF _generatePassword Partial-->
 
     <!-- Modal -->
   <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
