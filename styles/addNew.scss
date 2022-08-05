@@ -1,7 +1,6 @@
 .add-new-login-page {
   font-family: "Thasadith";
-  display: flex;
-  flex-direction: column;
+
 
   h1 {
     align-self: center;
@@ -20,7 +19,7 @@
 .password-input {
   display: flex;
   flex-direction: row;
-  padding-left: 37px //allign with other boxes
+  padding-left: 39px //allign with other boxes
 }
 
 div {
@@ -42,11 +41,7 @@ div {
     margin-bottom: 10px;
   }
 
-  .password-input {
-    display: flex;
-    flex-direction: row;
-    // padding-left: 50px; //to keep alligned with centered boxes
-  }
+
 
   .fa-copy {
     padding: 1em;
