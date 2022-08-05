@@ -161,7 +161,7 @@ Real usernames and passwords should not be stored or used commercially at this p
 
 ## Roadmap
 
-- [ ] Fix a few styling inconsistencies, such as margin/padding issues.
+- [ ] Add "Prettier" for cleaner linting.
 - [ ] Add instructions for setting up Postgres database to README File.
 - [ ] Encrypt saved login info. This is the next MAJOR step for the app.
 - [ ] Add organisations logic (Org can manage saved logins, and grant/revoke access to specific users/groups)
