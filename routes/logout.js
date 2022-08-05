@@ -5,9 +5,9 @@ const router  = express.Router();
 
 
 
-module.exports = (db) => {
+module.exports = () => {
 
-//logout
+  //logout
   router.post("/", (req, res) => {
     req.session = null;
     res.redirect("/");

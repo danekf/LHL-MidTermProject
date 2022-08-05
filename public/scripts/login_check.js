@@ -6,19 +6,17 @@ $(document).ready(() => {
       let password = $("#password-field").val();
 
       //check that the user actually input data, interupt ONLY if there is an issue
-      if (login.length === 0){
+      if (login.length === 0) {
         event.preventDefault();
-        let alert ='Please input a username or email before hitting log in.'
+        let alert = 'Please input a username or email before hitting log in.';
         $("#alert").html(alert);
-      }
-
-      else if(password.length === 0){
+      } else if (password.length === 0) {
         event.preventDefault();
-        let alert ='Please input a password before hitting log in.';
+        let alert = 'Please input a password before hitting log in.';
         $("#alert").html(alert);
 
       }
     }
-  )
+  );
 
 });

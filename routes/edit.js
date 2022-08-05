@@ -7,9 +7,6 @@
 
 const express = require('express');
 const router  = express.Router();
-const bcrypt = require("bcryptjs");
-
-
 
 module.exports = (db) => {
 
@@ -19,8 +16,8 @@ module.exports = (db) => {
       res.redirect("/home"); //redirect user to login
     }
 
-    const{service_name, saved_username, saved_password, login_URL, saved_login_id} = req.body;
-    const templateVars={user: req.session.userId, service_name: service_name, saved_username: saved_username, saved_password: saved_password, login_URL:
+    const {service_name, saved_username, saved_password, login_URL, saved_login_id} = req.body;
+    const templateVars = {user: req.session.userId, service_name: service_name, saved_username: saved_username, saved_password: saved_password, login_URL:
     login_URL, saved_login_id: saved_login_id};
 
     res.render("editLogin", templateVars);
@@ -41,14 +38,15 @@ module.exports = (db) => {
             SET saved_username = $1, saved_password = $2, login_url = $3, service_name = $4
             WHERE user_id = $5 AND id = $6
             `;
-            const queryValues = [`${login}`, `${password}`, `${URL}`, `${loginName}`, `${user_id}`, `${saved_login_id}`];
-            db.query(queryString, queryValues)
-              .then(data => {
-                return res.redirect('/');
-              })
-              .catch(err => {
-                console.log(err);
-              });
+    const queryValues = [`${login}`, `${password}`, `${URL}`, `${loginName}`, `${user_id}`, `${saved_login_id}`];
+    db.query(queryString, queryValues)
+      .then(data => {
+        console.log(data);
+        return res.redirect('/');
+      })
+      .catch(err => {
+        console.log(err);
+      });
   });
 
   router.post("/favourite", (req, res) => {
@@ -58,7 +56,7 @@ module.exports = (db) => {
     WHERE user_id = $1 AND id = $2
     `;
 
-    const previousPage = req.originalUrl;
+    const previousPage = req.originalUrl; // Should we use keep this variable, it's not used anywhere else ...
     const {saved_login_id} = req.body;
     const user_id = req.session.userId.id;
 
@@ -69,11 +67,12 @@ module.exports = (db) => {
 
     db.query(queryString, queryValues)
       .then(data => {
+        console.log(data);
         res.redirect('back');
       })
       .catch(err => {
         console.log(err);
-      })
+      });
 
 
   });
@@ -95,11 +94,12 @@ module.exports = (db) => {
 
     db.query(queryString, queryValues)
       .then(data => {
+        console.log(data);
         res.redirect('back');
       })
       .catch(err => {
         console.log(err);
-      })
+      });
 
   });
 

@@ -15,7 +15,7 @@ module.exports = (db) => {
   router.get("/", (req, res) => {
     //if logged in, redirect
 
-    if (req.session.userId){
+    if (req.session.userId) {
       res.redirect("/");
     }
 
@@ -31,7 +31,7 @@ module.exports = (db) => {
     const login = req.body.login;
     const password = req.body.password;
     console.log(password);
-    console.log(`Login: ${login} password: ${password}`)
+    console.log(`Login: ${login} password: ${password}`);
 
     const queryString = `
     SELECT *
@@ -44,25 +44,24 @@ module.exports = (db) => {
 
     //query db for login info
     db.query(queryString, queryValues)
-    .then(data => {
-      console.log('user object:' , data.rows[0])
-       //set session cookie, with the logged in users username
-      if(!data.rows[0] || (!bcrypt.compareSync(password, data.rows[0].password))){
-        console.log(bcrypt.compareSync(password, data.rows[0].password));
-        const templateVars = {user: "", error: "Login error, please verify and try again."}
-        res.render("login", templateVars);
-      }
-      else{
-        req.session.userId = data.rows[0];
-        res.redirect("/");
-      }
+      .then(data => {
+        console.log('user object:' , data.rows[0]);
+        //set session cookie, with the logged in users username
+        if (!data.rows[0] || (!bcrypt.compareSync(password, data.rows[0].password))) {
+          console.log(bcrypt.compareSync(password, data.rows[0].password));
+          const templateVars = {user: "", error: "Login error, please verify and try again."};
+          res.render("login", templateVars);
+        } else {
+          req.session.userId = data.rows[0];
+          res.redirect("/");
+        }
 
-    })
-    .catch(err => {
-      console.log(err);
-      const templateVars = {user: req.session.userId, error: ""};
-      res.render("login", templateVars);
-    });
+      })
+      .catch(err => {
+        console.log(err);
+        const templateVars = {user: req.session.userId, error: ""};
+        res.render("login", templateVars);
+      });
   });
 
 

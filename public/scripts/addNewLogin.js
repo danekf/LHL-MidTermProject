@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   //user submits login
   $('#saveLogin').submit(
     (event) => {
@@ -9,19 +9,17 @@ $(document).ready(function () {
 
 
       //check that the user actually input data, interupt ONLY if there is an issue
-      if (login.length === 0){
+      if (login.length === 0) {
         event.preventDefault();
-        let alert ='Please input a username or email before hitting log in.'
+        let alert = 'Please input a username or email before hitting log in.';
         $("#alert").html(alert);
-      }
-      else if(password.length === 0){
+      } else if (password.length === 0) {
         event.preventDefault();
-        let alert ='Please input a password before hitting log in.';
+        let alert = 'Please input a password before hitting log in.';
         $("#alert").html(alert);
-      }
-      else if(loginName.length === 0){
+      } else if (loginName.length === 0) {
         event.preventDefault();
-        let alert ='Please name this login.';
+        let alert = 'Please name this login.';
         $("#alert").html(alert);
       }
     });
