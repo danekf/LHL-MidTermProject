@@ -19,7 +19,8 @@
 .password-input {
   display: flex;
   flex-direction: row;
-  padding-left: 39px //allign with other boxes
+  padding-left: 39px; //allign with other boxes
+  align-self: center;
 }
 
 div {
