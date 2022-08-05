@@ -97,6 +97,7 @@ To setup your database for the project, follow these instructions prior to forki
 
 <br>
 <br>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Repo Setup
 
@@ -139,6 +140,7 @@ http://localhost:8080/
 ```
 <br>
 <br>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Warnings & Tips
 
@@ -158,6 +160,7 @@ Real usernames and passwords should not be stored or used commercially at this p
 - Use the `npm run db:reset` command each time there is a change to the database schema or seeds. 
   - It runs through each of the files, in order, and executes them against the database. 
   - Note: you will lose all newly created (test) data each time this is run, since the schema files will tend to `DROP` the tables and recreate them.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Roadmap
 
@@ -169,7 +172,9 @@ Real usernames and passwords should not be stored or used commercially at this p
 - [ ] Add Dynamic elements when selecting a login
 
 
+
 See the [open issues](https://github.com/danekf/Signum-App/issues) for a full list of proposed features (and known issues).
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
