@@ -1,4 +1,4 @@
-INSERT INTO user_saved_logins (user_id, saved_username, saved_password, service_name, favourite, login_url)
+INSERT INTO user_saved_logins (user_id, saved_username, saved_password, service_name, favourite, login_URL)
 VALUES (1, 'alice@wonderland.ca', 'password', 'Facebook', true, 'www.facebook.com');
 
 INSERT INTO user_saved_logins (user_id, saved_username, saved_password, service_name, favourite, login_URL)
