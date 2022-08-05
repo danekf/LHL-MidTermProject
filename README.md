@@ -139,7 +139,9 @@ http://localhost:8080/
 ## Warnings & Tips
 
 ```
-The app does not currently encrypt user passwords for saved logins. They are stored as plain text which is absolutely not ideal for real world scenarios.
+The app does not currently encrypt user passwords for saved logins. 
+
+They are stored as plain text which is absolutely not ideal for real world scenarios.
 
 This app is meant for learning database management and to develop skills.
 
