@@ -17,7 +17,7 @@ module.exports = (db) => {
       res.redirect('/');
     }
     const templateVars = {user: req.session.userId, message: ''};
-    res.render("register", templateVars );
+    res.render("register", templateVars);
   });
 
   // Register a new user:
@@ -31,16 +31,16 @@ module.exports = (db) => {
     const lastName = req.body.lastName;
     //const hashedPassword = bcrypt.hashSync(password, 10); // Password encryption
 
-console.log("Registering user...")
+    console.log("Registering user...");
     // if (username && email) {
-      db.query(`SELECT * FROM users WHERE email = $1 OR username = $2`, [email, username])
-        .then(data => {
-          console.log('data:', data);
-          let message = '';
-          //if found report that to user
-          if (!data.rows[0]) {
-            console.log("registering user...");
-            const queryString = `
+    db.query(`SELECT * FROM users WHERE email = $1 OR username = $2`, [email, username])
+      .then(data => {
+        console.log('data:', data);
+        let message = '';
+        //if found report that to user
+        if (!data.rows[0]) {
+          console.log("registering user...");
+          const queryString = `
             INSERT INTO
               users
               (email, username, password, first_name, last_name)
@@ -48,25 +48,24 @@ console.log("Registering user...")
               ($1, $2, $3, $4, $5)
               RETURNING *;
             `;
-            const queryValues = [`${email}`, `${username}`, `${password}`, `${firstName}`, `${lastName}`];
-            db.query(queryString, queryValues)
-              .then(data => {
-                req.session.userId = data.rows[0];
-                return res.redirect('/');
-              })
-              .catch(err => {
-                console.log(err);
-              });
-
-          }
-          //if not found go ahead and register
-          else {
-            console.log("User already registered.");
-            message += "Email or username already registered!";
-            const templateVars = {user: '', message: message};
-            res.render("register", templateVars); //re render the page with the new messages in place
-          }
-        });
+          const queryValues = [`${email}`, `${username}`, `${password}`, `${firstName}`, `${lastName}`];
+          db.query(queryString, queryValues)
+            .then(data => {
+              req.session.userId = data.rows[0];
+              return res.redirect('/');
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        }
+        //if not found go ahead and register
+        else {
+          console.log("User already registered.");
+          message += "Email or username already registered!";
+          const templateVars = {user: '', message: message};
+          res.render("register", templateVars); //re render the page with the new messages in place
+        }
+      });
   });
 
   return router;

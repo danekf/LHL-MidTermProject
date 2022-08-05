@@ -7,24 +7,21 @@
 
 const express = require('express');
 const router  = express.Router();
-const bcrypt = require('bcryptjs');
-
-
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
     //if not logged in, redirect to login with message to user
     if (!req.session.userId) {
-      res.redirect('/login')
+      res.redirect('/login');
     }
 
-    const templatevars = {user: req.session.userId}
-    res.render("addNewLogin", templatevars)
+    const templatevars = {user: req.session.userId};
+    res.render("addNewLogin", templatevars);
   });
 
   router.post("/", (req, res) => {
     const user_id = req.session.userId.id;
-    const{login, URL, password, loginName} = req.body;
+    const {login, URL, password, loginName} = req.body;
 
     console.log(req.body);
 
@@ -36,14 +33,15 @@ module.exports = (db) => {
               ($1, $2, $3, $4, $5)
               RETURNING *;
             `;
-            const queryValues = [`${user_id}`, `${login}`, `${password}`, `${URL}`, `${loginName}`];
-            db.query(queryString, queryValues)
-              .then(data => {
-                return res.redirect('/');
-              })
-              .catch(err => {
-                console.log(err);
-              });
+    const queryValues = [`${user_id}`, `${login}`, `${password}`, `${URL}`, `${loginName}`];
+    db.query(queryString, queryValues)
+      .then(data => {
+        console.log(data);
+        return res.redirect('/');
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
 
   });

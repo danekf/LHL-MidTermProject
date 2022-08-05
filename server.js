@@ -8,7 +8,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const cookieSession = require('cookie-session');
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -16,22 +16,22 @@ const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 
 db.connect()
-.then(()=>  console.log("connected"))
-  .catch(err => console.log(err))
+  .then(()=>  console.log("connected"))
+  .catch(err => console.log(err));
 
-  // Load the logger first so all (static) HTTP requests are logged to STDOUT
-  // 'dev' = Concise output colored by response status for development use.
-  //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+// Load the logger first so all (static) HTTP requests are logged to STDOUT
+// 'dev' = Concise output colored by response status for development use.
+//         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 
-  app.set("view engine", "ejs");
+app.set("view engine", "ejs");
 
-  app.use(morgan("dev"));
-  app.use(
-    cookieSession({
-      name: "session",
-      keys:["potatoes make burgers great", "There once was a man from nantucket"] //just some keys to cycle through
-    })
-  );
+app.use(morgan("dev"));
+app.use(
+  cookieSession({
+    name: "session",
+    keys:["potatoes make burgers great", "There once was a man from nantucket"] //just some keys to cycle through
+  })
+);
 
 
 
@@ -74,7 +74,7 @@ app.use("/home", homeRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.redirect("/home")
+  res.redirect("/home");
 });
 
 app.listen(PORT, () => {
