@@ -1,6 +1,28 @@
 .add-new-login-page {
   font-family: "Thasadith";
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    align-self: center;
+    padding: 25px;
+    font-weight: bolder;
+  }
+
 }
+
+#saveLogin {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.password-input {
+  display: flex;
+  flex-direction: row;
+  padding-left: 37px //allign with other boxes
+}
+
 div {
   display: flex;
   flex-direction: column;

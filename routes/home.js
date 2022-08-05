@@ -18,7 +18,7 @@ module.exports = (db) => {
       //demo user
       user_id = 1;
     }
-    else{
+    else {
       user_id = req.session.userId.id;
     }
       const queryString = `

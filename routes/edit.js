@@ -20,7 +20,7 @@ module.exports = (db) => {
     }
 
     const{service_name, saved_username, saved_password, login_URL, saved_login_id} = req.body;
-    const templateVars={user: req.session.userId, service_name: service_name, saved_username: saved_username, saved_password, saved_password, login_URL:
+    const templateVars={user: req.session.userId, service_name: service_name, saved_username: saved_username, saved_password: saved_password, login_URL:
     login_URL, saved_login_id: saved_login_id};
 
     res.render("editLogin", templateVars);
