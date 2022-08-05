@@ -55,7 +55,7 @@
 <!-- ABOUT -->
 ## About The Project
 
-[![SignumScreenshot][product-screenshot]](https://github.com/danekf/LHL-MidtermProject)
+[![SignumScreenshot][product-screenshot]](https://github.com/danekf/Sigun-App)
 
 Signum is a web app that serves as a password manager for its end users.
 
@@ -161,7 +161,7 @@ Real usernames and passwords should not be stored or used commercially at this p
 
 ## Roadmap
 
-- [ ] Fix a few styling inconsistencies, such as margin/padding issues.
+- [ ] Add "Prettier" for cleaner linting.
 - [ ] Add instructions for setting up Postgres database to README File.
 - [ ] Encrypt saved login info. This is the next MAJOR step for the app.
 - [ ] Add organisations logic (Org can manage saved logins, and grant/revoke access to specific users/groups)
@@ -196,6 +196,13 @@ See the [open issues](https://github.com/danekf/Signum-App/issues) for a full li
 ### Basic Search
   <a>
     <img src="images/Search.png" alt="Logo">
+  </a>
+<br>
+
+### Copy to Clipboard 
+
+  <a>
+    <img src="images/CopyToC.png" alt="Logo">
   </a>
 <br>
 
