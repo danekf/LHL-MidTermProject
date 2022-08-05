@@ -178,12 +178,12 @@ See the [open issues](https://github.com/danekf/Signum-App/issues) for a full li
   <a>
     <img src="images/Register.png" alt="Logo">
   </a>
+<br>
 
 ### Password Generator
   <a>
     <img src="images/Password.png" alt="Logo">
   </a>
-<br>
 <br>
 
 ### Add New Login
@@ -191,14 +191,13 @@ See the [open issues](https://github.com/danekf/Signum-App/issues) for a full li
     <img src="images/addNew.png" alt="Logo">
   </a>
 <br>
-<br>
 
 ### Basic Search
   <a>
     <img src="images/Search.png" alt="Logo">
   </a>
-  <br>
 <br>
+
 
 
 
