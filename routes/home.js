@@ -73,6 +73,12 @@ module.exports = (db) => {
         })
   });
 
+    router.post("/search", (req, res) => {
+      const {search} = req.body;
+      console.log(`Search is : ${search}`);
+
+    });
+
 
     return router;
 };

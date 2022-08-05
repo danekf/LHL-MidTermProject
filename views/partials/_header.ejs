@@ -68,7 +68,7 @@
         <li><a href="/home">My Favourites</a></li>
         <li><a href="/home/all">All Logins</a></li>
         <li><a href="/addNewLogin">Add a New Account</a></li>
-        <li><input action = "/home/search" method = "POST" placeholder="Search Logins"><button>Search</button></li>
+        <li><form action = "/home/search" method = "POST"><input name = "search"  placeholder="Search Logins"><button>Search</button></form></li>
         <% } else { %>
         <li><a href="/home">Home</a></li>
         <li><a href="/register">Register</a></li>
