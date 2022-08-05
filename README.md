@@ -186,18 +186,21 @@ See the [open issues](https://github.com/danekf/Signum-App/issues) for a full li
     <img src="images/Password.png" alt="Logo">
   </a>
 <br>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Add New Login
   <a>
     <img src="images/addNew.png" alt="Logo">
   </a>
 <br>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Basic Search
   <a>
     <img src="images/Search.png" alt="Logo">
   </a>
 <br>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Copy to Clipboard 
 
@@ -205,6 +208,7 @@ See the [open issues](https://github.com/danekf/Signum-App/issues) for a full li
     <img src="images/CopyToC.png" alt="Logo">
   </a>
 <br>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
