@@ -37,7 +37,7 @@ module.exports = (db) => {
         })
         .catch(err => {
           console.log(err);
-          const templateVars = {user: req.session.userId, data: '', Title: "My Favourites"};
+          const templateVars = {user: req.session.userId, data: '', Title: "Favourites"};
           res.render('index', templateVars);
         })
 

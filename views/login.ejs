@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
 
       <!-- App CSS -->
       <link rel="stylesheet" href="/styles/login.css" type="text/css" />
 
 <head>
-  <title>Home Page</title>
+  <title>Login Page</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -19,10 +24,8 @@
 
 <body class="favourited-logins">
   <%- include('partials/_header.ejs') %>
-
-  <div class="login-page flex">
-    <h1>Log In</h1>
-
+  <h1>Log In</h1>
+    <div class="login-page flex">
     <form id = "user_login" action = "/login", method = "POST">
       <input
       id = "login"
