@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <!-- ADD LOGO HERE -->
-  <a href="URL FOR LOGO">
+  <a href="https://github.com/danekf/LHL-MidtermProject/blob/feature/readme/images/Signum%20S.png">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
