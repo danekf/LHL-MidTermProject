@@ -55,7 +55,7 @@
 <!-- ABOUT -->
 ## About The Project
 
-[![SignumScreenshot][product-screenshot]](https://github.com/danekf/LHL-MidtermProject)
+[![SignumScreenshot][product-screenshot]](https://github.com/danekf/Sigun-App)
 
 Signum is a web app that serves as a password manager for its end users.
 
@@ -196,6 +196,13 @@ See the [open issues](https://github.com/danekf/Signum-App/issues) for a full li
 ### Basic Search
   <a>
     <img src="images/Search.png" alt="Logo">
+  </a>
+<br>
+
+### Copy to Clipboard 
+
+  <a>
+    <img src="images/CopyToC.png" alt="Logo">
   </a>
 <br>
 
